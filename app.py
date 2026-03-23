@@ -299,17 +299,37 @@ div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
 }
 
 /* -- Expanders -- */
-.streamlit-expanderHeader {
+.streamlit-expanderHeader,
+[data-testid="stExpander"] summary {
     font-family: var(--font-mono) !important;
     font-size: 0.82rem !important;
     background: var(--ob-surface-container) !important;
     border: none !important;
     border-radius: 0px !important;
     transition: all 0.2s ease !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
 }
 .streamlit-expanderHeader:hover {
     background: var(--ob-surface-high) !important;
     box-shadow: var(--ob-glow-pink) !important;
+}
+/* Expander spacing -- prevent overlap between stacked expanders */
+[data-testid="stExpander"] {
+    margin-bottom: 8px !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+[data-testid="stExpander"] details {
+    overflow: hidden !important;
+}
+[data-testid="stExpander"] summary span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    display: block !important;
+    max-width: calc(100% - 30px) !important;
 }
 
 /* -- Tabs -- 0px radius, no border line */

@@ -67,14 +67,24 @@ def render(client: APIClient, _section, _divider, _api):
                     tid = row.get("tool_id", "")
                     evt = row.get("event_type", "")
                     sev = row.get("severity", "")
-                    with st.expander(f"{ts}  |  {tid}  |  {evt}  |  {sev}"):
+                    # Short label: just tool + event + severity
+                    ts_short = str(ts)[:19] if ts else "---"
+                    label = f"{ts_short} | {tid or '---'} | {evt or '---'} | {sev or '---'}"
+                    with st.expander(label):
+                        # Show key fields as compact columns
+                        c1, c2, c3, c4 = st.columns(4)
+                        c1.markdown(f"**Timestamp**\n\n`{ts}`")
+                        c2.markdown(f"**Tool**\n\n`{tid}`")
+                        c3.markdown(f"**Event**\n\n`{evt}`")
+                        c4.markdown(f"**Severity**\n\n`{sev}`")
+
                         params_raw = row.get("parameters_json", "{}")
                         if params_raw:
                             try:
                                 params = json.loads(params_raw) if isinstance(params_raw, str) else params_raw
                                 if params:
                                     st.markdown("**Parameters:**")
-                                    st.dataframe(pd.DataFrame([params]), use_container_width=True)
+                                    st.json(params, expanded=False)
                             except Exception:
                                 pass
                         raw = row.get("raw_content", "")
