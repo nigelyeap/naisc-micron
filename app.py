@@ -112,6 +112,59 @@ header[data-testid="stHeader"] {
 #MainMenu { visibility: hidden !important; }
 footer { visibility: hidden !important; }
 
+/* -- Sidebar collapse button fix (Material Icon text fallback) -- */
+button[data-testid="stSidebarCollapseButton"],
+button[data-testid="stBaseButton-headerNoPadding"] {
+    font-size: 0 !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--ob-surface-container) !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+button[data-testid="stSidebarCollapseButton"]::after,
+button[data-testid="stBaseButton-headerNoPadding"]::after {
+    content: '\276E' !important;
+    font-size: 14px !important;
+    color: var(--ob-text-dim) !important;
+    font-family: sans-serif !important;
+}
+button[data-testid="stSidebarCollapseButton"]:hover,
+button[data-testid="stBaseButton-headerNoPadding"]:hover {
+    background: var(--ob-surface-high) !important;
+}
+button[data-testid="stSidebarCollapseButton"]:hover::after,
+button[data-testid="stBaseButton-headerNoPadding"]:hover::after {
+    color: var(--ob-pink) !important;
+}
+/* Also hide the expand button text */
+[data-testid="stSidebarCollapsedControl"] button {
+    font-size: 0 !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    background: var(--ob-surface-container) !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+[data-testid="stSidebarCollapsedControl"] button::after {
+    content: '\276F' !important;
+    font-size: 14px !important;
+    color: var(--ob-text-dim) !important;
+    font-family: sans-serif !important;
+}
+[data-testid="stSidebarCollapsedControl"] button:hover {
+    background: var(--ob-surface-high) !important;
+}
+[data-testid="stSidebarCollapsedControl"] button:hover::after {
+    color: var(--ob-pink) !important;
+}
+
 /* -- Sidebar -- */
 section[data-testid="stSidebar"] {
     background: var(--ob-surface-lowest) !important;
