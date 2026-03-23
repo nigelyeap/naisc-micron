@@ -240,19 +240,6 @@ python test_app.py
 
 ---
 
-## Design System
-
-The dashboard uses the **Obsidian Protocol** design system, inspired by semiconductor cleanroom monitoring interfaces:
-
-- **0px corners** -- sharp, machined precision throughout
-- **No-line rule** -- surface layer shifts instead of borders
-- **Glow over shadow** -- ambient pink glow for active states
-- **Scan-line texture** -- subtle horizontal pattern on backgrounds
-- **Colors** -- Obsidian base (#131319), hot pink (#ff46a0), amber (#ff9800), system green (#69df54)
-- **Typography** -- Plus Jakarta Sans headlines, IBM Plex Mono data readouts, ALL-CAPS etched labels
-
----
-
 ## Requirements
 
 - Python 3.12+
