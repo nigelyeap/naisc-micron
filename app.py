@@ -13,11 +13,11 @@ import streamlit as st
 from frontend.api_client import APIClient
 
 # -- Page imports --
-from pages.upload import render as render_upload
-from pages.explorer import render as render_explorer
-from pages.analytics_page import render as render_analytics
-from pages.nl_query import render as render_nl_query
-from pages.summary import render as render_summary
+from views.upload import render as render_upload
+from views.explorer import render as render_explorer
+from views.analytics_page import render as render_analytics
+from views.nl_query import render as render_nl_query
+from views.summary import render as render_summary
 
 # ------------------------------------------------------------------ #
 #  Page config
@@ -112,57 +112,19 @@ header[data-testid="stHeader"] {
 #MainMenu { visibility: hidden !important; }
 footer { visibility: hidden !important; }
 
-/* -- Sidebar collapse button fix (Material Icon text fallback) -- */
+/* -- Hide sidebar collapse/expand buttons entirely --
+   Sidebar is always expanded; no need for toggle buttons.
+   This eliminates the "keyboard_double_arrow" Material Icon text fallback. */
 button[data-testid="stSidebarCollapseButton"],
-button[data-testid="stBaseButton-headerNoPadding"] {
-    font-size: 0 !important;
-    color: transparent !important;
-    overflow: hidden !important;
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: var(--ob-surface-container) !important;
-    border: none !important;
-    border-radius: 0 !important;
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapseButton"] {
+    display: none !important;
 }
-button[data-testid="stSidebarCollapseButton"]::after,
-button[data-testid="stBaseButton-headerNoPadding"]::after {
-    content: '\276E' !important;
-    font-size: 14px !important;
-    color: var(--ob-text-dim) !important;
-    font-family: sans-serif !important;
-}
-button[data-testid="stSidebarCollapseButton"]:hover,
-button[data-testid="stBaseButton-headerNoPadding"]:hover {
-    background: var(--ob-surface-high) !important;
-}
-button[data-testid="stSidebarCollapseButton"]:hover::after,
-button[data-testid="stBaseButton-headerNoPadding"]:hover::after {
-    color: var(--ob-pink) !important;
-}
-/* Also hide the expand button text */
-[data-testid="stSidebarCollapsedControl"] button {
-    font-size: 0 !important;
-    color: transparent !important;
-    overflow: hidden !important;
-    background: var(--ob-surface-container) !important;
-    border: none !important;
-    border-radius: 0 !important;
-}
-[data-testid="stSidebarCollapsedControl"] button::after {
-    content: '\276F' !important;
-    font-size: 14px !important;
-    color: var(--ob-text-dim) !important;
-    font-family: sans-serif !important;
-}
-[data-testid="stSidebarCollapsedControl"] button:hover {
-    background: var(--ob-surface-high) !important;
-}
-[data-testid="stSidebarCollapsedControl"] button:hover::after {
-    color: var(--ob-pink) !important;
+/* Prevent sidebar from being collapsible */
+section[data-testid="stSidebar"] {
+    min-width: 280px !important;
+    max-width: 280px !important;
+    transform: none !important;
 }
 
 /* -- Sidebar -- */

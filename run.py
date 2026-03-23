@@ -21,7 +21,7 @@ def start_backend():
     """Launch the FastAPI/uvicorn backend as a subprocess."""
     return subprocess.Popen(
         [sys.executable, "-m", "uvicorn", "backend.app:app",
-         "--host", "0.0.0.0", "--port", "8000", "--reload"],
+         "--host", "127.0.0.1", "--port", "8000", "--reload"],
         cwd=PROJECT_ROOT,
     )
 
@@ -31,6 +31,7 @@ def start_frontend():
     return subprocess.Popen(
         [sys.executable, "-m", "streamlit", "run", "app.py",
          "--server.port", "8501",
+         "--server.address", "localhost",
          "--server.headless", "true",
          "--browser.gatherUsageStats", "false"],
         cwd=PROJECT_ROOT,

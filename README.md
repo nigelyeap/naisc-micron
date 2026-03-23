@@ -56,7 +56,7 @@ NAISC Micron/
 +-- requirements.txt
 +-- .streamlit/config.toml    # Dark theme config
 |
-+-- pages/                    # Streamlit page modules
++-- views/                    # Streamlit page modules
 |   +-- upload.py             # Upload & Parse
 |   +-- explorer.py           # Log Explorer
 |   +-- analytics_page.py     # Analytics Dashboard
