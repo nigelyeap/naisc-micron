@@ -1,0 +1,1321 @@
+{
+  "ToolTrace": {
+    "ToolInfo": {
+      "ToolName": "ETCH-TOOL-003",
+      "ToolType": "ConductorEtch",
+      "FabID": "FAB-WEST-02",
+      "ToolSoftwareVersion": "7.4.1-build.2281"
+    },
+    "RunInfo": {
+      "RunID": "RUN-20250115-093000-PM3",
+      "LotID": "LOT-2025-B2087",
+      "WaferSlot": 5,
+      "WaferID": "WFR-B2087-05",
+      "CarrierID": "FOUP-1122",
+      "Recipe": {
+        "RecipeName": "COND_ETCH_45NM_V2",
+        "RecipeRevision": "2.1.0",
+        "Steps": [
+          {
+            "StepNumber": 1,
+            "StepName": "Stabilize",
+            "Duration_s": 30,
+            "Parameters": {
+              "Pressure_Pa": 1.1,
+              "Temp_C": 80,
+              "RF_W": 0,
+              "Gas_CF4_sccm": 45
+            }
+          },
+          {
+            "StepNumber": 2,
+            "StepName": "MainEtch",
+            "Duration_s": 120,
+            "Parameters": {
+              "Pressure_Pa": 1.1,
+              "Temp_C": 80,
+              "RF_W": 250,
+              "BiasRF_W": 100,
+              "Gas_CF4_sccm": 45
+            }
+          },
+          {
+            "StepNumber": 3,
+            "StepName": "OverEtch",
+            "Duration_s": 60,
+            "Parameters": {
+              "Pressure_Pa": 0.8,
+              "Temp_C": 80,
+              "RF_W": 200,
+              "BiasRF_W": 80,
+              "Gas_CF4_sccm": 40
+            }
+          },
+          {
+            "StepNumber": 4,
+            "StepName": "Purge",
+            "Duration_s": 20,
+            "Parameters": {
+              "Pressure_Pa": 5.0,
+              "Temp_C": 80,
+              "RF_W": 0,
+              "Gas_N2_sccm": 200
+            }
+          }
+        ]
+      },
+      "StartTimestamp": "15-Jan-2025 09:00:00.000",
+      "EndTimestamp": "15-Jan-2025 09:18:20.000",
+      "Outcome": "COMPLETED_WITH_WARNINGS"
+    },
+    "SensorTraces": [
+      {
+        "Name": "ChamberPressure",
+        "Keys": {
+          "SensorID": "PRES-PM3-01",
+          "Location": "PM3-MainChamber"
+        },
+        "UnitOfMeasure": "Pa",
+        "SampleInterval_ms": 20000,
+        "DataPoints": [
+          {
+            "Timestamp": "15-Jan-2025 09:00:00.235",
+            "Reading": 1.0799
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:20.778",
+            "Reading": 1.0669
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:40.746",
+            "Reading": 1.0906
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:00.700",
+            "Reading": 1.116
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:20.091",
+            "Reading": 1.1351
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:40.501",
+            "Reading": 1.076
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:00.739",
+            "Reading": 1.1091
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:20.221",
+            "Reading": 1.1234
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:40.807",
+            "Reading": 1.0899
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:00.397",
+            "Reading": 1.1289
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:20.217",
+            "Reading": 1.0722
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:40.676",
+            "Reading": 4.0074
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:00.580",
+            "Reading": 4.1033
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:20.969",
+            "Reading": 1.1173
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:40.693",
+            "Reading": 1.122
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:00.480",
+            "Reading": 1.0853
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:20.043",
+            "Reading": 1.0816
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:40.007",
+            "Reading": 1.094
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:00.371",
+            "Reading": 1.1392
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:20.547",
+            "Reading": 1.0665
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:40.531",
+            "Reading": 1.132
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:00.620",
+            "Reading": 1.097
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:20.052",
+            "Reading": 1.0886
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:40.221",
+            "Reading": 1.1362
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:00.732",
+            "Reading": 3.9965
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:20.810",
+            "Reading": 4.165
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:40.947",
+            "Reading": 1.1386
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:00.966",
+            "Reading": 1.1003
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:20.180",
+            "Reading": 1.063
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:40.023",
+            "Reading": 1.0737
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:00.700",
+            "Reading": 1.1256
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:20.083",
+            "Reading": 1.1349
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:40.647",
+            "Reading": 1.0669
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:00.317",
+            "Reading": 1.1094
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:20.390",
+            "Reading": 1.0864
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:40.535",
+            "Reading": 1.0924
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:00.921",
+            "Reading": 1.123
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:20.056",
+            "Reading": 1.1112
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:40.453",
+            "Reading": 4.0545
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:00.413",
+            "Reading": 1.126
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:20.129",
+            "Reading": 1.0883
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:40.711",
+            "Reading": 1.0981
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:00.057",
+            "Reading": 1.0705
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:20.884",
+            "Reading": 1.1175
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:40.797",
+            "Reading": 1.1198
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:00.622",
+            "Reading": 1.1353
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:20.127",
+            "Reading": 1.0677
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:40.147",
+            "Reading": 1.0837
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:00.181",
+            "Reading": 1.0928
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:20.946",
+            "Reading": 1.0766
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:40.574",
+            "Reading": 1.0855
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:00.511",
+            "Reading": 1.1238
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:20.866",
+            "Reading": 1.0806
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:40.878",
+            "Reading": 1.1258
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:18:00.190",
+            "Reading": 1.1143
+          }
+        ]
+      },
+      {
+        "Name": "SubstrateTemperature",
+        "Keys": {
+          "SensorID": "TEMP-PM3-01",
+          "Location": "PM3-ESC"
+        },
+        "UnitOfMeasure": "degC",
+        "SampleInterval_ms": 20000,
+        "DataPoints": [
+          {
+            "Timestamp": "15-Jan-2025 09:00:00.513",
+            "Reading": 79.4905
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:20.599",
+            "Reading": 80.7981
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:40.345",
+            "Reading": 79.3192
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:00.408",
+            "Reading": 79.6082
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:20.831",
+            "Reading": 79.7586
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:40.424",
+            "Reading": 80.7529
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:00.547",
+            "Reading": 79.0224
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:20.900",
+            "Reading": 78.8902
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:40.381",
+            "Reading": 80.532
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:00.408",
+            "Reading": 80.65
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:20.235",
+            "Reading": 79.5474
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:40.670",
+            "Reading": 137.8356
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:00.737",
+            "Reading": 137.8864
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:20.895",
+            "Reading": 80.4509
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:40.321",
+            "Reading": 79.3246
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:00.828",
+            "Reading": 80.5077
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:20.728",
+            "Reading": 79.3993
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:40.303",
+            "Reading": 79.8515
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:00.982",
+            "Reading": 78.9923
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:20.448",
+            "Reading": 79.8107
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:40.929",
+            "Reading": 79.4149
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:00.515",
+            "Reading": 79.5033
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:20.701",
+            "Reading": 80.899
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:40.807",
+            "Reading": 79.945
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:00.130",
+            "Reading": 138.2579
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:20.262",
+            "Reading": 137.9586
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:40.297",
+            "Reading": 79.7824
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:00.674",
+            "Reading": 80.7832
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:20.163",
+            "Reading": 79.4775
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:40.694",
+            "Reading": 80.428
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:00.883",
+            "Reading": 81.1695
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:20.682",
+            "Reading": 80.5156
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:40.199",
+            "Reading": 79.7116
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:00.908",
+            "Reading": 79.2744
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:20.004",
+            "Reading": 80.4009
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:40.711",
+            "Reading": 79.509
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:00.870",
+            "Reading": 79.2639
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:20.680",
+            "Reading": 80.4028
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:40.808",
+            "Reading": 138.084
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:00.672",
+            "Reading": 79.8001
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:20.770",
+            "Reading": 80.8791
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:40.236",
+            "Reading": 79.7798
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:00.882",
+            "Reading": 79.6293
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:20.409",
+            "Reading": 78.8087
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:40.513",
+            "Reading": 80.0762
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:00.001",
+            "Reading": 80.053
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:20.972",
+            "Reading": 80.4135
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:40.765",
+            "Reading": 81.1771
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:00.523",
+            "Reading": 80.6837
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:20.454",
+            "Reading": 81.0394
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:40.270",
+            "Reading": 80.5966
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:00.756",
+            "Reading": 79.8004
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:20.573",
+            "Reading": 80.0745
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:40.634",
+            "Reading": 80.6429
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:18:00.850",
+            "Reading": 80.6361
+          }
+        ]
+      },
+      {
+        "Name": "RFForwardPower",
+        "Keys": {
+          "SensorID": "RFPW-PM3-01",
+          "Location": "PM3-TopElectrode"
+        },
+        "UnitOfMeasure": "Watt",
+        "SampleInterval_ms": 20000,
+        "DataPoints": [
+          {
+            "Timestamp": "15-Jan-2025 09:00:00.787",
+            "Reading": 248.3
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:20.756",
+            "Reading": 246.1649
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:40.107",
+            "Reading": 252.451
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:00.077",
+            "Reading": 250.6441
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:20.984",
+            "Reading": 246.4665
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:40.306",
+            "Reading": 248.9538
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:00.570",
+            "Reading": 251.0112
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:20.727",
+            "Reading": 250.7041
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:40.302",
+            "Reading": 247.552
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:00.102",
+            "Reading": 253.9346
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:20.812",
+            "Reading": 249.1573
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:40.808",
+            "Reading": 479.8034
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:00.471",
+            "Reading": 479.8974
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:20.898",
+            "Reading": 247.0453
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:40.457",
+            "Reading": 252.9434
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:00.711",
+            "Reading": 251.6147
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:20.428",
+            "Reading": 250.4951
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:40.732",
+            "Reading": 247.4307
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:00.256",
+            "Reading": 247.6609
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:20.474",
+            "Reading": 250.5813
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:40.911",
+            "Reading": 251.598
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:00.188",
+            "Reading": 252.6133
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:20.959",
+            "Reading": 253.9851
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:40.586",
+            "Reading": 253.1434
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:00.910",
+            "Reading": 480.2496
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:20.680",
+            "Reading": 479.8017
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:40.076",
+            "Reading": 250.2533
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:00.470",
+            "Reading": 250.1854
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:20.117",
+            "Reading": 248.638
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:40.505",
+            "Reading": 246.5772
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:00.670",
+            "Reading": 251.8698
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:20.583",
+            "Reading": 251.445
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:40.281",
+            "Reading": 251.0681
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:00.596",
+            "Reading": 248.5527
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:20.267",
+            "Reading": 247.3279
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:40.602",
+            "Reading": 253.36
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:00.406",
+            "Reading": 246.2891
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:20.350",
+            "Reading": 250.0907
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:40.568",
+            "Reading": 480.1533
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:00.162",
+            "Reading": 252.7027
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:20.058",
+            "Reading": 251.5643
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:40.427",
+            "Reading": 247.8368
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:00.193",
+            "Reading": 246.9373
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:20.175",
+            "Reading": 248.1824
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:40.672",
+            "Reading": 248.9213
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:00.573",
+            "Reading": 253.3505
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:20.794",
+            "Reading": 250.472
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:40.718",
+            "Reading": 248.8295
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:00.982",
+            "Reading": 252.5216
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:20.083",
+            "Reading": 251.9474
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:40.116",
+            "Reading": 251.798
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:00.844",
+            "Reading": 247.0956
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:20.558",
+            "Reading": 246.6921
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:40.777",
+            "Reading": 250.1019
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:18:00.388",
+            "Reading": 247.3325
+          }
+        ]
+      },
+      {
+        "Name": "BiasRFPower",
+        "Keys": {
+          "SensorID": "BRFP-PM3-01",
+          "Location": "PM3-BottomElectrode"
+        },
+        "UnitOfMeasure": "Watt",
+        "SampleInterval_ms": 20000,
+        "DataPoints": [
+          {
+            "Timestamp": "15-Jan-2025 09:00:00.891",
+            "Reading": 101.1291
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:20.237",
+            "Reading": 100.4599
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:40.778",
+            "Reading": 101.8745
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:00.164",
+            "Reading": 99.3604
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:20.054",
+            "Reading": 101.5723
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:40.828",
+            "Reading": 100.5002
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:00.192",
+            "Reading": 99.2299
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:20.756",
+            "Reading": 98.4445
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:40.508",
+            "Reading": 100.5716
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:00.533",
+            "Reading": 100.9228
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:20.012",
+            "Reading": 98.9244
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:40.938",
+            "Reading": 210.1093
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:00.099",
+            "Reading": 210.1697
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:20.241",
+            "Reading": 100.267
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:40.750",
+            "Reading": 101.1717
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:00.895",
+            "Reading": 101.5613
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:20.897",
+            "Reading": 101.2691
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:40.896",
+            "Reading": 101.5612
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:00.170",
+            "Reading": 101.0962
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:20.382",
+            "Reading": 99.012
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:40.603",
+            "Reading": 98.1824
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:00.406",
+            "Reading": 98.0815
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:20.971",
+            "Reading": 98.6353
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:40.966",
+            "Reading": 98.0452
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:00.292",
+            "Reading": 210.1858
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:20.302",
+            "Reading": 209.8741
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:40.504",
+            "Reading": 99.71
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:00.074",
+            "Reading": 98.1612
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:20.167",
+            "Reading": 100.4259
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:40.324",
+            "Reading": 101.3863
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:00.679",
+            "Reading": 99.3078
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:20.848",
+            "Reading": 101.875
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:40.385",
+            "Reading": 101.2556
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:00.624",
+            "Reading": 98.9065
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:20.154",
+            "Reading": 100.7745
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:40.018",
+            "Reading": 101.0548
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:00.961",
+            "Reading": 99.1551
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:20.409",
+            "Reading": 99.6764
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:40.732",
+            "Reading": 210.2407
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:00.233",
+            "Reading": 98.6966
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:20.416",
+            "Reading": 101.9666
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:40.217",
+            "Reading": 98.9671
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:00.266",
+            "Reading": 98.6553
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:20.580",
+            "Reading": 98.3758
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:40.004",
+            "Reading": 100.2622
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:00.029",
+            "Reading": 101.3506
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:20.134",
+            "Reading": 101.6023
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:40.184",
+            "Reading": 100.517
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:00.062",
+            "Reading": 101.9568
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:20.260",
+            "Reading": 98.7329
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:40.782",
+            "Reading": 99.7225
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:00.003",
+            "Reading": 101.7307
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:20.036",
+            "Reading": 100.0119
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:40.959",
+            "Reading": 101.967
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:18:00.456",
+            "Reading": 98.2961
+          }
+        ]
+      },
+      {
+        "Name": "ProcessGasFlow_CF4",
+        "Keys": {
+          "SensorID": "GAS-PM3-CF4",
+          "Location": "PM3-GasBox"
+        },
+        "UnitOfMeasure": "sccm",
+        "SampleInterval_ms": 20000,
+        "DataPoints": [
+          {
+            "Timestamp": "15-Jan-2025 09:00:00.602",
+            "Reading": 44.5733
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:20.445",
+            "Reading": 44.4113
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:00:40.938",
+            "Reading": 45.1796
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:00.378",
+            "Reading": 45.0031
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:20.238",
+            "Reading": 45.3738
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:01:40.496",
+            "Reading": 44.5334
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:00.875",
+            "Reading": 44.3607
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:20.626",
+            "Reading": 44.5227
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:02:40.819",
+            "Reading": 44.4777
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:00.486",
+            "Reading": 45.381
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:20.254",
+            "Reading": 44.4758
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:03:40.702",
+            "Reading": 7.8539
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:00.667",
+            "Reading": 8.0095
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:20.819",
+            "Reading": 45.0072
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:04:40.891",
+            "Reading": 45.5609
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:00.079",
+            "Reading": 44.5756
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:20.537",
+            "Reading": 44.5628
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:05:40.721",
+            "Reading": 44.8736
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:00.536",
+            "Reading": 45.0982
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:20.247",
+            "Reading": 44.6008
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:06:40.785",
+            "Reading": 45.1033
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:00.507",
+            "Reading": 44.5025
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:20.812",
+            "Reading": 45.2046
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:07:40.965",
+            "Reading": 44.2612
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:00.063",
+            "Reading": 7.8891
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:20.947",
+            "Reading": 7.73
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:08:40.299",
+            "Reading": 44.4962
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:00.921",
+            "Reading": 45.677
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:20.261",
+            "Reading": 44.2162
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:09:40.543",
+            "Reading": 44.6725
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:00.743",
+            "Reading": 44.7833
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:20.163",
+            "Reading": 44.7513
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:10:40.145",
+            "Reading": 45.3146
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:00.543",
+            "Reading": 44.6166
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:20.463",
+            "Reading": 44.2892
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:11:40.981",
+            "Reading": 44.2435
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:00.237",
+            "Reading": 44.4258
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:20.080",
+            "Reading": 45.5357
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:12:40.388",
+            "Reading": 7.7108
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:00.963",
+            "Reading": 44.7088
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:20.384",
+            "Reading": 44.5919
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:13:40.157",
+            "Reading": 45.4477
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:00.022",
+            "Reading": 44.2465
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:20.216",
+            "Reading": 44.5554
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:14:40.635",
+            "Reading": 44.6095
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:00.964",
+            "Reading": 44.3127
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:20.000",
+            "Reading": 44.8945
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:15:40.673",
+            "Reading": 44.8974
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:00.708",
+            "Reading": 45.5504
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:20.744",
+            "Reading": 44.7916
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:16:40.433",
+            "Reading": 45.0934
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:00.384",
+            "Reading": 45.4283
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:20.926",
+            "Reading": 45.2314
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:17:40.334",
+            "Reading": 45.3393
+          },
+          {
+            "Timestamp": "15-Jan-2025 09:18:00.827",
+            "Reading": 44.3867
+          }
+        ]
+      }
+    ],
+    "AlarmLog": [
+      {
+        "Name": "PRS-EXCURSION-001",
+        "Description": "Chamber pressure outside tolerance band",
+        "Level": "WARNING",
+        "Timestamp": "15-Jan-2025 09:03:40.543",
+        "Cleared": false,
+        "ClearedTimestamp": null
+      },
+      {
+        "Name": "TMP-OVERLIMIT-003",
+        "Description": "Substrate temperature exceeded high limit",
+        "Level": "WARNING",
+        "Timestamp": "15-Jan-2025 09:04:00.224",
+        "Cleared": false,
+        "ClearedTimestamp": null
+      },
+      {
+        "Name": "RF-REFLECT-005",
+        "Description": "RF reflected power > 10% of forward",
+        "Level": "WARNING",
+        "Timestamp": "15-Jan-2025 09:08:00.277",
+        "Cleared": true,
+        "ClearedTimestamp": "15-Jan-2025 09:08:24.000"
+      },
+      {
+        "Name": "GAS-DEVIATION-002",
+        "Description": "Process gas flow deviation > 5 sccm",
+        "Level": "WARNING",
+        "Timestamp": "15-Jan-2025 09:08:20.217",
+        "Cleared": true,
+        "ClearedTimestamp": "15-Jan-2025 09:08:39.000"
+      },
+      {
+        "Name": "BIAS-SPIKE-004",
+        "Description": "Bias RF power transient detected",
+        "Level": "CRITICAL",
+        "Timestamp": "15-Jan-2025 09:12:40.616",
+        "Cleared": true,
+        "ClearedTimestamp": "15-Jan-2025 09:12:47.000"
+      }
+    ],
+    "SystemMessages": [
+      {
+        "Timestamp": "15-Jan-2025 09:00:00.100",
+        "Source": "ProcessController",
+        "Level": "INFO",
+        "Message": "Run RUN-20250115-093000-PM3 initiated"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:00:01.200",
+        "Source": "GasBox",
+        "Level": "INFO",
+        "Message": "CF4 MFC opened to 45.0 sccm setpoint"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:00:30.050",
+        "Source": "ProcessController",
+        "Level": "INFO",
+        "Message": "Step 1 (Stabilize) completed"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:00:30.100",
+        "Source": "RFGenerator",
+        "Level": "INFO",
+        "Message": "RF forward power ramping to 250W"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:02:30.500",
+        "Source": "ProcessController",
+        "Level": "INFO",
+        "Message": "Step 2 (MainEtch) completed"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:04:30.000",
+        "Source": "ProcessController",
+        "Level": "INFO",
+        "Message": "Step 3 (OverEtch) completed"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:05:00.000",
+        "Source": "VacuumSystem",
+        "Level": "INFO",
+        "Message": "Venting to N2 purge pressure"
+      },
+      {
+        "Timestamp": "15-Jan-2025 09:05:20.000",
+        "Source": "ProcessController",
+        "Level": "INFO",
+        "Message": "Step 4 (Purge) completed. Run finished."
+      }
+    ]
+  }
+}

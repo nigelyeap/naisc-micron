@@ -1,0 +1,219 @@
+01/15/2025  00:04:10.3821  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOexpose.cpp, ?.?, 860)
+SYSTEM EVENT: AL-7001 DEFAULT
+Alignment mark detected at X=187.03um Y=-19.03um
+
+01/15/2025  00:29:55.6981  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOlogfile.cpp, ?.?, 637)
+SYSTEM EVENT: AL-7001 DEFAULT
+Alignment mark detected at X=-286.64um Y=396.66um
+
+01/15/2025  00:55:19.9093  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOalign.cpp, ?.?, 466)
+SYSTEM EVENT: WH-1002 DEFAULT
+Wafer W-003 unloaded to cassette slot 15
+
+01/15/2025  01:19:34.7442  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOalign.cpp, ?.?, 134)
+SYSTEM WARNING: TH-8010 WARNING
+Thermal drift detected: delta=11.12mK above threshold
+
+01/15/2025  01:45:05.9858  Machine:MCH0001  (Rel:VER2024.11, ERLO [31002], ERLOwafer.cpp, ?.?, 878)
+SYSTEM WARNING: TH-8010 WARNING
+Thermal drift detected: delta=12.24mK above threshold
+
+01/15/2025  02:10:22.7013  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOsystem.cpp, ?.?, 723)
+SYSTEM EVENT: EX-6010 DEFAULT
+Lot LOT-A1043 processing complete, 20 wafers exposed
+
+01/15/2025  02:30:04.0180  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOwafer.cpp, ?.?, 858)
+SYSTEM EVENT: EX-6010 DEFAULT
+Lot LOT-B2087 processing complete, 21 wafers exposed
+
+01/15/2025  02:58:55.5068  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOwafer.cpp, ?.?, 277)
+SYSTEM EVENT: ER-4102 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_025855' is created...
+
+01/15/2025  03:23:33.2132  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOalign.cpp, ?.?, 686)
+SYSTEM EVENT: ST-3001 DEFAULT
+Stage calibration check passed, offset X=-0.04nm Y=0.139nm
+
+01/15/2025  03:47:46.4410  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOsystem.cpp, ?.?, 731)
+SYSTEM EVENT: EX-6002 DEFAULT
+Exposure complete: dose=33.32mJ/cm2 focus=-12.5nm
+
+01/15/2025  04:10:54.8156  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOexpose.cpp, ?.?, 477)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-A1042 wafer=W-011 field=F37
+
+01/15/2025  04:38:10.4584  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOlogfile.cpp, ?.?, 491)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-A1042 wafer=W-012 field=F55
+
+01/15/2025  05:00:37.1582  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOwafer.cpp, ?.?, 413)
+DEACTIVATE: DA-9001 DEFAULT
+Module WaferHandler deactivated for scheduled maintenance
+
+01/15/2025  05:28:02.4027  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOwafer.cpp, ?.?, 129)
+SYSTEM EVENT: AL-7001 DEFAULT
+Alignment mark detected at X=-257.74um Y=226.62um
+
+01/15/2025  05:52:48.1878  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOalign.cpp, ?.?, 856)
+SYSTEM EVENT: RR-5001 DEFAULT
+Reticle RTL-NXE-001 loaded to reticle stage
+
+01/15/2025  06:20:05.4247  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOtherm.cpp, ?.?, 419)
+DEACTIVATE: DA-9001 DEFAULT
+Module ReticleStage deactivated for scheduled maintenance
+
+01/15/2025  06:41:37.1038  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOlogfile.cpp, ?.?, 727)
+SYSTEM EVENT: EX-6010 DEFAULT
+Lot LOT-B2087 processing complete, 21 wafers exposed
+
+01/15/2025  07:10:39.3137  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOtherm.cpp, ?.?, 653)
+SYSTEM EVENT: RR-5001 DEFAULT
+Reticle RTL-NXE-002 loaded to reticle stage
+
+01/15/2025  07:35:07.7713  Machine:MCH0001  (Rel:VER2024.11, ERLO [51201], ERLOtherm.cpp, ?.?, 754)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-B2087 wafer=W-019 field=F72
+
+01/15/2025  07:57:57.5874  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOexpose.cpp, ?.?, 178)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-B2087 wafer=W-020 field=F27
+
+01/15/2025  08:25:37.5891  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOtherm.cpp, ?.?, 131)
+SYSTEM EVENT: AL-7001 DEFAULT
+Alignment mark detected at X=-256.43um Y=490.56um
+
+01/15/2025  08:48:35.6427  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOexpose.cpp, ?.?, 381)
+SYSTEM WARNING: PR-8020 WARNING
+Pressure fluctuation in chamber: 0.0689Pa (limit: 0.05Pa)
+
+01/15/2025  09:13:44.1315  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOwafer.cpp, ?.?, 417)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-A1043 wafer=W-023 field=F56
+
+01/15/2025  09:37:23.6076  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOwafer.cpp, ?.?, 266)
+SYSTEM EVENT: EX-6001 DEFAULT
+Exposure start: lot=LOT-A1042 wafer=W-024 field=F66
+
+01/15/2025  10:00:52.6451  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOalign.cpp, ?.?, 112)
+SYSTEM WARNING: IL-8030 WARNING
+Source power instability: 1.4% variation
+
+01/15/2025  10:29:01.7970  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOexpose.cpp, ?.?, 129)
+SYSTEM WARNING: PR-8020 WARNING
+Pressure fluctuation in chamber: 0.0525Pa (limit: 0.05Pa)
+
+01/15/2025  10:51:50.9582  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOalign.cpp, ?.?, 799)
+SYSTEM EVENT: IL-2010 DEFAULT
+Illuminator source power at 248.7W, status nominal
+
+01/15/2025  11:19:10.1051  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOwafer.cpp, ?.?, 301)
+SYSTEM WARNING: TH-8010 WARNING
+Thermal drift detected: delta=11.28mK above threshold
+
+01/15/2025  11:44:10.5934  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOlogfile.cpp, ?.?, 170)
+SYSTEM WARNING: PR-8020 WARNING
+Pressure fluctuation in chamber: 0.0848Pa (limit: 0.05Pa)
+
+01/15/2025  12:06:44.6550  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOexpose.cpp, ?.?, 635)
+SYSTEM WARNING: PR-8020 WARNING
+Pressure fluctuation in chamber: 0.1194Pa (limit: 0.05Pa)
+
+01/15/2025  12:30:48.2532  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOsystem.cpp, ?.?, 514)
+SYSTEM EVENT: ER-4103 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_123048' is closed
+
+01/15/2025  13:00:18.4209  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOalign.cpp, ?.?, 748)
+SYSTEM EVENT: AL-7001 DEFAULT
+Alignment mark detected at X=-237.27um Y=-34.71um
+
+01/15/2025  13:25:15.6061  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOlogfile.cpp, ?.?, 363)
+SYSTEM EVENT: WH-1001 DEFAULT
+Wafer handler initialized, home position confirmed
+
+01/15/2025  13:50:07.1643  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOtherm.cpp, ?.?, 796)
+DEACTIVATE: DA-9001 DEFAULT
+Module ReticleStage deactivated for scheduled maintenance
+
+01/15/2025  14:11:54.1430  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOwafer.cpp, ?.?, 135)
+SYSTEM EVENT: ER-4100 DEFAULT
+System initialization sequence started
+
+01/15/2025  14:40:25.2218  Machine:MCH0001  (Rel:VER2024.11, ERLO [70300], ERLOwafer.cpp, ?.?, 529)
+SYSTEM EVENT: WH-1002 DEFAULT
+Wafer W-011 unloaded to cassette slot 24
+
+01/15/2025  15:00:13.9389  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOexpose.cpp, ?.?, 211)
+SYSTEM EVENT: IL-2010 DEFAULT
+Illuminator source power at 248.8W, status nominal
+
+01/15/2025  15:28:15.6496  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOsystem.cpp, ?.?, 105)
+SYSTEM WARNING: IL-8030 WARNING
+Source power instability: 1.74% variation
+
+01/15/2025  15:52:33.8190  Machine:MCH0001  (Rel:VER2024.11, ERLO [51201], ERLOwafer.cpp, ?.?, 860)
+SYSTEM EVENT: IL-2010 DEFAULT
+Illuminator source power at 250.0W, status nominal
+
+01/15/2025  16:15:07.6615  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOalign.cpp, ?.?, 112)
+SYSTEM EVENT: ER-4103 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_161507' is closed
+
+01/15/2025  16:42:27.8933  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOalign.cpp, ?.?, 691)
+DEACTIVATE: DA-9001 DEFAULT
+Module ReticleStage deactivated for scheduled maintenance
+
+01/15/2025  17:06:57.9770  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOalign.cpp, ?.?, 798)
+SYSTEM WARNING: PR-8020 WARNING
+Pressure fluctuation in chamber: 0.1121Pa (limit: 0.05Pa)
+
+01/15/2025  17:33:22.9457  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOalign.cpp, ?.?, 618)
+SYSTEM EVENT: EX-6002 DEFAULT
+Exposure complete: dose=32.98mJ/cm2 focus=5.2nm
+
+01/15/2025  17:59:22.7703  Machine:MCH0001  (Rel:VER2024.11, ERLO [51201], ERLOsystem.cpp, ?.?, 460)
+SYSTEM EVENT: ER-4100 DEFAULT
+System initialization sequence started
+
+01/15/2025  18:25:19.3699  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOsystem.cpp, ?.?, 816)
+SYSTEM EVENT: WH-1001 DEFAULT
+Wafer handler initialized, home position confirmed
+
+01/15/2025  18:47:48.5635  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOwafer.cpp, ?.?, 300)
+SYSTEM EVENT: WH-1002 DEFAULT
+Wafer W-021 unloaded to cassette slot 20
+
+01/15/2025  19:10:31.0459  Machine:MCH0001  (Rel:VER2024.11, ERLO [60100], ERLOlogfile.cpp, ?.?, 692)
+SYSTEM WARNING: IL-8030 WARNING
+Source power instability: 2.2% variation
+
+01/15/2025  19:37:52.1461  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOsystem.cpp, ?.?, 315)
+SYSTEM EVENT: IL-2010 DEFAULT
+Illuminator source power at 248.8W, status nominal
+
+01/15/2025  20:04:44.3773  Machine:MCH0001  (Rel:VER2024.11, ERLO [41005], ERLOtherm.cpp, ?.?, 479)
+SYSTEM WARNING: IL-8030 WARNING
+Source power instability: 1.82% variation
+
+01/15/2025  20:25:15.0491  Machine:MCH0001  (Rel:VER2024.11, ERLO [20703], ERLOlogfile.cpp, ?.?, 225)
+SYSTEM EVENT: ER-4103 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_202515' is closed
+
+01/15/2025  20:53:40.8958  Machine:MCH0001  (Rel:VER2024.11, ERLO [20704], ERLOlogfile.cpp, ?.?, 183)
+SYSTEM WARNING: IL-8030 WARNING
+Source power instability: 0.51% variation
+
+01/15/2025  21:18:38.5269  Machine:MCH0001  (Rel:VER2024.11, ERLO [51201], ERLOalign.cpp, ?.?, 688)
+SYSTEM EVENT: ER-4103 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_211838' is closed
+
+01/15/2025  21:45:42.1935  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOwafer.cpp, ?.?, 446)
+SYSTEM WARNING: TH-8010 WARNING
+Thermal drift detected: delta=12.37mK above threshold
+
+01/15/2025  22:08:27.6572  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOexpose.cpp, ?.?, 721)
+SYSTEM EVENT: ER-4103 DEFAULT
+Log file 'ER/ER_event_log_m#MCH0001_20250115_220827' is closed
+
+01/15/2025  22:30:42.3608  Machine:MCH0001  (Rel:VER2024.11, ERLO [80010], ERLOalign.cpp, ?.?, 362)
+SYSTEM EVENT: WH-1001 DEFAULT
+Wafer handler initialized, home position confirmed

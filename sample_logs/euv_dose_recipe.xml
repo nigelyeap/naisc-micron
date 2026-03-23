@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<ADELdr:Recipe xmlns:ADELdr="http://www.adel.com/schemas/dr" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header>
+    <Title>EUV_DOSE_PROFILE_7NM_V3</Title>
+    <MachineID>EUV-SCN-002</MachineID>
+    <CustomerName>ACME Semiconductor</CustomerName>
+    <MachineType>TWINSCAN NXE:3600D</MachineType>
+    <SoftwareRelease>SW-2024.11.3-HF2</SoftwareRelease>
+    <CreatedBy>ProcessEngineer_JSmith</CreatedBy>
+    <CreateTime>2025-01-10T14:30:00Z</CreateTime>
+    <DocumentId>DOC-2025-EUV-00342</DocumentId>
+    <DocumentType>DoseRecipe</DocumentType>
+    <DocumentTypeVersion>3.1</DocumentTypeVersion>
+  </Header>
+  <RecipeName>EUV_DOSE_7NM_LAYER4</RecipeName>
+  <ApprovedBy>SrProcessEngineer_KWong</ApprovedBy>
+  <ExpirationTime>2025-07-10T14:30:00Z</ExpirationTime>
+  <TargetMachineID>EUV-SCN-002</TargetMachineID>
+  <SlitProfileList>
+    <SlitProfileElement Index="0" Name="SlitZone_1" Width_mm="4.4" Position_mm="-11.0">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="0.997554"/>
+        <SetPoint Order="1" Value="-0.001692"/>
+        <SetPoint Order="2" Value="0.000222"/>
+        <SetPoint Order="3" Value="0.003713"/>
+        <SetPoint Order="4" Value="0.001706"/>
+        <SetPoint Order="5" Value="0.001505"/>
+        <SetPoint Order="6" Value="-0.00257"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+    <SlitProfileElement Index="1" Name="SlitZone_2" Width_mm="4.6" Position_mm="-6.6">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="1.008101"/>
+        <SetPoint Order="1" Value="0.002236"/>
+        <SetPoint Order="2" Value="-0.003903"/>
+        <SetPoint Order="3" Value="-1.5e-05"/>
+        <SetPoint Order="4" Value="0.004941"/>
+        <SetPoint Order="5" Value="0.00089"/>
+        <SetPoint Order="6" Value="0.001711"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+    <SlitProfileElement Index="2" Name="SlitZone_3" Width_mm="4.8" Position_mm="-2.2">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="0.999283"/>
+        <SetPoint Order="1" Value="-0.000175"/>
+        <SetPoint Order="2" Value="0.000721"/>
+        <SetPoint Order="3" Value="0.001607"/>
+        <SetPoint Order="4" Value="0.002965"/>
+        <SetPoint Order="5" Value="0.001809"/>
+        <SetPoint Order="6" Value="-0.001324"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+    <SlitProfileElement Index="3" Name="SlitZone_4" Width_mm="5.0" Position_mm="2.2">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="1.004411"/>
+        <SetPoint Order="1" Value="0.000767"/>
+        <SetPoint Order="2" Value="0.00079"/>
+        <SetPoint Order="3" Value="0.002438"/>
+        <SetPoint Order="4" Value="-0.002885"/>
+        <SetPoint Order="5" Value="0.001192"/>
+        <SetPoint Order="6" Value="0.003394"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+    <SlitProfileElement Index="4" Name="SlitZone_5" Width_mm="5.2" Position_mm="6.6">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="1.004169"/>
+        <SetPoint Order="1" Value="-0.000369"/>
+        <SetPoint Order="2" Value="-0.000168"/>
+        <SetPoint Order="3" Value="-0.00389"/>
+        <SetPoint Order="4" Value="0.00184"/>
+        <SetPoint Order="5" Value="0.001249"/>
+        <SetPoint Order="6" Value="0.003064"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+    <SlitProfileElement Index="5" Name="SlitZone_6" Width_mm="5.4" Position_mm="11.0">
+      <LegendreCoefficientList>
+        <SetPoint Order="0" Value="0.999342"/>
+        <SetPoint Order="1" Value="-0.000224"/>
+        <SetPoint Order="2" Value="-0.003257"/>
+        <SetPoint Order="3" Value="0.001178"/>
+        <SetPoint Order="4" Value="-0.000964"/>
+        <SetPoint Order="5" Value="-0.000327"/>
+        <SetPoint Order="6" Value="0.000629"/>
+      </LegendreCoefficientList>
+    </SlitProfileElement>
+  </SlitProfileList>
+  <DoseProfileList>
+    <DoseProfileElement FieldPositionY_mm="-13.0" TargetDose_mJ_cm2="33.45" DoseUniformity_percent="0.375">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.993242"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.00348"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="0.998768"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.000653"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.003329"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="0.999618"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.994882"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.994562"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="-10.4" TargetDose_mJ_cm2="33.48" DoseUniformity_percent="0.161">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.999149"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.000022"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="0.994325"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.007033"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.006449"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.005897"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="1.00379"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.997428"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="-7.800000000000001" TargetDose_mJ_cm2="33.32" DoseUniformity_percent="0.358">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="1.001167"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.002087"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.001422"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.004843"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.003152"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.005863"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.996546"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="1.000019"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="-5.2" TargetDose_mJ_cm2="32.61" DoseUniformity_percent="0.169">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.994962"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.000591"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.000026"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="0.999302"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.001287"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.000066"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="1.001309"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.999326"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="-2.6" TargetDose_mJ_cm2="32.74" DoseUniformity_percent="0.415">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="1.002169"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.001538"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.001758"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.000175"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="0.99874"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.000347"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="1.000581"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="1.002112"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="0.0" TargetDose_mJ_cm2="32.94" DoseUniformity_percent="0.3">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.993851"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="1.005835"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="0.999039"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="0.996048"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="0.997636"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.000156"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="1.000744"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.998815"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="2.6" TargetDose_mJ_cm2="32.82" DoseUniformity_percent="0.233">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.998262"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="0.998139"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.000557"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="0.999037"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="0.999373"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.001645"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="1.000195"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="1.005199"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="5.2" TargetDose_mJ_cm2="33.33" DoseUniformity_percent="0.303">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.997743"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="0.995301"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.003741"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.006358"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="0.997511"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.002214"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.995388"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="1.000339"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="7.800000000000001" TargetDose_mJ_cm2="33.02" DoseUniformity_percent="0.398">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.998043"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="0.997948"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="1.000996"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.004003"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="0.995419"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="1.001665"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.997935"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="1.004447"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="10.4" TargetDose_mJ_cm2="32.73" DoseUniformity_percent="0.441">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="1.000377"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="0.987647"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="0.995057"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="1.000685"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.000712"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="0.996412"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.996967"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.999918"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+    <DoseProfileElement FieldPositionY_mm="13.0" TargetDose_mJ_cm2="33.2" DoseUniformity_percent="0.374">
+      <IntensityCorrection>
+        <CorrectionPoint ScanPosition_mm="-14.0" CorrectionFactor="0.997848"/>
+        <CorrectionPoint ScanPosition_mm="-10.0" CorrectionFactor="0.99565"/>
+        <CorrectionPoint ScanPosition_mm="-6.0" CorrectionFactor="0.998219"/>
+        <CorrectionPoint ScanPosition_mm="-2.0" CorrectionFactor="0.999558"/>
+        <CorrectionPoint ScanPosition_mm="2.0" CorrectionFactor="1.001133"/>
+        <CorrectionPoint ScanPosition_mm="6.0" CorrectionFactor="0.999239"/>
+        <CorrectionPoint ScanPosition_mm="10.0" CorrectionFactor="0.998503"/>
+        <CorrectionPoint ScanPosition_mm="14.0" CorrectionFactor="0.996676"/>
+      </IntensityCorrection>
+    </DoseProfileElement>
+  </DoseProfileList>
+</ADELdr:Recipe>

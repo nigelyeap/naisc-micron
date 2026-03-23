@@ -1,0 +1,110 @@
+timestamp=2025-01-15T08:00:01Z tool_id=ETCH-002 module=C4 event=WAFER_LOAD recipe=RCP_0002 step=0 pressure=1.389 temp=89.0 rf_power=349 gas_flow=57.8 status=OK wafer_id=WFR-9108 slot=6
+timestamp=2025-01-15T08:00:32Z tool_id=ETCH-001 module=C1 event=ALARM recipe=RCP_DRY_ETCH_01 step=0 pressure=1.264 temp=91.0 rf_power=206 gas_flow=33.4 status=OK alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:00:52Z tool_id=ETCH-002 module=C1 event=RECIPE_START recipe=RCP_DRY_ETCH_01 step=1 pressure=1.482 temp=80.1 rf_power=264 gas_flow=44.5 status=OK
+timestamp=2025-01-15T08:01:19Z tool_id=ETCH-001 module=C3 event=STEP_COMPLETE recipe=RCP_0001 step=2 pressure=1.476 temp=96.9 rf_power=359 gas_flow=42.2 status=ERROR
+timestamp=2025-01-15T08:01:44Z tool_id=ETCH-001 module=C4 event=WAFER_UNLOAD recipe=RCP_0001 step=2 pressure=1.079 temp=85.4 rf_power=331 gas_flow=46.8 status=OK wafer_id=WFR-2630 slot=24
+timestamp=2025-01-15T08:02:14Z tool_id=ETCH-002 module=C3 event=IDLE recipe=RCP_0002 step=2 pressure=1.436 temp=99.2 rf_power=237 gas_flow=57.5 status=ERROR
+timestamp=2025-01-15T08:02:34Z tool_id=ETCH-001 module=C3 event=IDLE recipe=RCP_0002 step=2 pressure=0.972 temp=90.2 rf_power=327 gas_flow=52.2 status=OK
+timestamp=2025-01-15T08:03:00Z tool_id=ETCH-001 module=C3 event=RECIPE_START recipe=RCP_0002 step=1 pressure=1.018 temp=79.2 rf_power=231 gas_flow=50.2 status=ERROR
+timestamp=2025-01-15T08:03:22Z tool_id=ETCH-001 module=C4 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=2 pressure=1.009 temp=89.2 rf_power=376 gas_flow=37.0 status=OK
+timestamp=2025-01-15T08:03:45Z tool_id=ETCH-002 module=C1 event=SENSOR_READ recipe=RCP_DRY_ETCH_01 step=2 pressure=1.184 temp=95.8 rf_power=287 gas_flow=36.4 status=OK
+timestamp=2025-01-15T08:04:16Z tool_id=ETCH-001 module=C3 event=SENSOR_READ recipe=RCP_0002 step=2 pressure=1.275 temp=89.3 rf_power=391 gas_flow=53.4 status=OK
+timestamp=2025-01-15T08:04:36Z tool_id=ETCH-002 module=C1 event=PUMP_DOWN recipe=RCP_DRY_ETCH_01 step=2 pressure=1.383 temp=93.6 rf_power=359 gas_flow=41.3 status=OK
+timestamp=2025-01-15T08:05:03Z tool_id=ETCH-001 module=C3 event=ALARM recipe=RCP_0002 step=2 pressure=1.454 temp=92.6 rf_power=280 gas_flow=44.6 status=WARNING alarm_code=ALM-RF-005 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:05:33Z tool_id=ETCH-001 module=C2 event=WAFER_LOAD recipe=RCP_0001 step=2 pressure=1.025 temp=88.8 rf_power=272 gas_flow=58.2 status=WARNING wafer_id=WFR-5068 slot=18
+timestamp=2025-01-15T08:05:56Z tool_id=ETCH-001 module=C1 event=RECIPE_END recipe=RCP_0001 step=0 pressure=1.275 temp=94.1 rf_power=239 gas_flow=34.9 status=OK
+timestamp=2025-01-15T08:06:23Z tool_id=ETCH-002 module=C2 event=WAFER_UNLOAD recipe=RCP_0001 step=0 pressure=1.395 temp=84.6 rf_power=352 gas_flow=49.0 status=OK wafer_id=WFR-6219 slot=18
+timestamp=2025-01-15T08:06:46Z tool_id=ETCH-002 module=C4 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=1 pressure=1.124 temp=97.5 rf_power=290 gas_flow=54.3 status=OK
+timestamp=2025-01-15T08:07:05Z tool_id=ETCH-001 module=C2 event=RECIPE_END recipe=RCP_0002 step=0 pressure=0.905 temp=80.1 rf_power=278 gas_flow=53.8 status=OK
+timestamp=2025-01-15T08:07:31Z tool_id=ETCH-002 module=C4 event=WAFER_UNLOAD recipe=RCP_0002 step=0 pressure=0.787 temp=76.0 rf_power=323 gas_flow=39.4 status=OK wafer_id=WFR-9122 slot=17
+timestamp=2025-01-15T08:07:58Z tool_id=ETCH-001 module=C3 event=RECIPE_START recipe=RCP_DRY_ETCH_01 step=1 pressure=0.96 temp=82.0 rf_power=236 gas_flow=54.7 status=OK
+timestamp=2025-01-15T08:08:26Z tool_id=ETCH-001 module=C2 event=WAFER_UNLOAD recipe=RCP_0002 step=1 pressure=1.49 temp=85.3 rf_power=380 gas_flow=58.8 status=OK wafer_id=WFR-9317 slot=2
+timestamp=2025-01-15T08:08:55Z tool_id=ETCH-001 module=C1 event=ALARM recipe=RCP_DRY_ETCH_01 step=1 pressure=0.853 temp=75.7 rf_power=251 gas_flow=54.0 status=OK alarm_code=ALM-TEMP-003 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:09:13Z tool_id=ETCH-002 module=C4 event=RECIPE_START recipe=RCP_DRY_ETCH_01 step=1 pressure=0.764 temp=96.9 rf_power=366 gas_flow=43.1 status=OK
+timestamp=2025-01-15T08:09:39Z tool_id=ETCH-001 module=C3 event=IDLE recipe=RCP_0002 step=1 pressure=0.705 temp=80.3 rf_power=305 gas_flow=50.8 status=OK
+timestamp=2025-01-15T08:10:06Z tool_id=ETCH-001 module=C3 event=PUMP_DOWN recipe=RCP_0002 step=1 pressure=1.064 temp=96.0 rf_power=335 gas_flow=30.5 status=OK
+timestamp=2025-01-15T08:10:32Z tool_id=ETCH-001 module=C1 event=PUMP_DOWN recipe=RCP_0002 step=1 pressure=1.392 temp=75.3 rf_power=388 gas_flow=38.9 status=ERROR
+timestamp=2025-01-15T08:10:51Z tool_id=ETCH-001 module=C1 event=SENSOR_READ recipe=RCP_0002 step=1 pressure=0.946 temp=93.8 rf_power=261 gas_flow=59.0 status=WARNING
+timestamp=2025-01-15T08:11:17Z tool_id=ETCH-002 module=C1 event=IDLE recipe=RCP_0002 step=1 pressure=1.35 temp=94.9 rf_power=223 gas_flow=31.8 status=ERROR
+timestamp=2025-01-15T08:11:42Z tool_id=ETCH-002 module=C1 event=RECIPE_END recipe=RCP_0002 step=0 pressure=1.483 temp=83.9 rf_power=319 gas_flow=31.1 status=WARNING
+timestamp=2025-01-15T08:12:13Z tool_id=ETCH-002 module=C2 event=ALARM recipe=RCP_0001 step=0 pressure=1.144 temp=99.9 rf_power=239 gas_flow=37.8 status=OK alarm_code=ALM-RF-005 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:12:34Z tool_id=ETCH-002 module=C4 event=SENSOR_READ recipe=RCP_DRY_ETCH_01 step=0 pressure=0.705 temp=84.9 rf_power=256 gas_flow=48.9 status=WARNING
+timestamp=2025-01-15T08:13:02Z tool_id=ETCH-002 module=C2 event=WAFER_UNLOAD recipe=RCP_0002 step=0 pressure=0.842 temp=94.0 rf_power=337 gas_flow=47.7 status=OK wafer_id=WFR-2515 slot=6
+timestamp=2025-01-15T08:13:25Z tool_id=ETCH-001 module=C2 event=RECIPE_END recipe=RCP_DRY_ETCH_01 step=0 pressure=1.146 temp=99.2 rf_power=278 gas_flow=32.4 status=ERROR
+timestamp=2025-01-15T08:13:55Z tool_id=ETCH-001 module=C4 event=WAFER_UNLOAD recipe=RCP_0002 step=0 pressure=0.766 temp=85.5 rf_power=309 gas_flow=47.4 status=OK wafer_id=WFR-1156 slot=14
+timestamp=2025-01-15T08:14:19Z tool_id=ETCH-002 module=C3 event=ALARM recipe=RCP_0001 step=0 pressure=0.898 temp=98.6 rf_power=208 gas_flow=59.3 status=ERROR alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:14:41Z tool_id=ETCH-002 module=C2 event=RECIPE_END recipe=RCP_DRY_ETCH_01 step=0 pressure=0.892 temp=77.3 rf_power=307 gas_flow=41.8 status=OK
+timestamp=2025-01-15T08:15:10Z tool_id=ETCH-001 module=C3 event=RECIPE_START recipe=RCP_0002 step=1 pressure=0.912 temp=79.8 rf_power=254 gas_flow=56.1 status=OK
+timestamp=2025-01-15T08:15:28Z tool_id=ETCH-001 module=C2 event=IDLE recipe=RCP_0002 step=1 pressure=1.115 temp=84.1 rf_power=216 gas_flow=31.9 status=OK
+timestamp=2025-01-15T08:15:55Z tool_id=ETCH-002 module=C2 event=IDLE recipe=RCP_0001 step=1 pressure=1.334 temp=78.3 rf_power=278 gas_flow=46.6 status=WARNING
+timestamp=2025-01-15T08:16:24Z tool_id=ETCH-001 module=C3 event=RECIPE_START recipe=RCP_0002 step=1 pressure=1.191 temp=96.1 rf_power=271 gas_flow=43.2 status=ERROR
+timestamp=2025-01-15T08:16:46Z tool_id=ETCH-002 module=C2 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=1 pressure=1.398 temp=89.2 rf_power=333 gas_flow=31.9 status=OK wafer_id=WFR-7222 slot=23
+timestamp=2025-01-15T08:17:06Z tool_id=ETCH-001 module=C4 event=RECIPE_END recipe=RCP_0001 step=0 pressure=0.953 temp=95.7 rf_power=237 gas_flow=34.7 status=ERROR
+timestamp=2025-01-15T08:17:30Z tool_id=ETCH-002 module=C1 event=SENSOR_READ recipe=RCP_0002 step=0 pressure=0.91 temp=94.7 rf_power=265 gas_flow=38.5 status=ERROR
+timestamp=2025-01-15T08:18:03Z tool_id=ETCH-001 module=C3 event=ALARM recipe=RCP_DRY_ETCH_01 step=0 pressure=0.961 temp=96.4 rf_power=203 gas_flow=50.3 status=OK alarm_code=ALM-PRES-001 alarm_text="Pressure excursion"
+timestamp=2025-01-15T08:18:24Z tool_id=ETCH-002 module=C1 event=PUMP_DOWN recipe=RCP_0001 step=0 pressure=1.077 temp=84.3 rf_power=339 gas_flow=40.8 status=ERROR
+timestamp=2025-01-15T08:18:53Z tool_id=ETCH-002 module=C2 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=1 pressure=1.351 temp=76.3 rf_power=263 gas_flow=49.7 status=OK
+timestamp=2025-01-15T08:19:10Z tool_id=ETCH-001 module=C1 event=WAFER_UNLOAD recipe=RCP_0001 step=1 pressure=1.252 temp=86.9 rf_power=336 gas_flow=40.0 status=OK wafer_id=WFR-6557 slot=16
+timestamp=2025-01-15T08:19:39Z tool_id=ETCH-002 module=C1 event=WAFER_UNLOAD recipe=RCP_0001 step=1 pressure=1.201 temp=77.1 rf_power=363 gas_flow=36.8 status=OK wafer_id=WFR-7974 slot=23
+timestamp=2025-01-15T08:20:10Z tool_id=ETCH-002 module=C2 event=PUMP_DOWN recipe=RCP_DRY_ETCH_01 step=1 pressure=0.775 temp=89.3 rf_power=294 gas_flow=35.1 status=WARNING
+timestamp=2025-01-15T08:20:33Z tool_id=ETCH-002 module=C1 event=RECIPE_END recipe=RCP_DRY_ETCH_01 step=0 pressure=0.965 temp=92.9 rf_power=349 gas_flow=40.4 status=OK
+timestamp=2025-01-15T08:20:50Z tool_id=ETCH-002 module=C3 event=SENSOR_READ recipe=RCP_DRY_ETCH_01 step=0 pressure=0.795 temp=91.1 rf_power=251 gas_flow=42.2 status=ERROR
+timestamp=2025-01-15T08:21:15Z tool_id=ETCH-002 module=C3 event=IDLE recipe=RCP_DRY_ETCH_01 step=0 pressure=1.222 temp=91.4 rf_power=378 gas_flow=41.9 status=OK
+timestamp=2025-01-15T08:21:44Z tool_id=ETCH-001 module=C2 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=1 pressure=1.039 temp=92.5 rf_power=264 gas_flow=44.1 status=OK
+timestamp=2025-01-15T08:22:10Z tool_id=ETCH-002 module=C3 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=2 pressure=1.384 temp=93.6 rf_power=284 gas_flow=52.7 status=OK
+timestamp=2025-01-15T08:22:33Z tool_id=ETCH-002 module=C4 event=RECIPE_END recipe=RCP_0001 step=0 pressure=1.018 temp=80.7 rf_power=320 gas_flow=57.9 status=OK
+timestamp=2025-01-15T08:23:04Z tool_id=ETCH-001 module=C3 event=RECIPE_END recipe=RCP_0002 step=0 pressure=1.356 temp=92.2 rf_power=302 gas_flow=53.9 status=OK
+timestamp=2025-01-15T08:23:28Z tool_id=ETCH-001 module=C3 event=GAS_STABILIZE recipe=RCP_DRY_ETCH_01 step=0 pressure=1.249 temp=86.0 rf_power=356 gas_flow=44.3 status=OK
+timestamp=2025-01-15T08:23:49Z tool_id=ETCH-002 module=C1 event=PUMP_DOWN recipe=RCP_0002 step=0 pressure=0.734 temp=94.5 rf_power=242 gas_flow=44.8 status=OK
+timestamp=2025-01-15T08:24:12Z tool_id=ETCH-002 module=C2 event=PUMP_DOWN recipe=RCP_0001 step=0 pressure=1.387 temp=93.5 rf_power=229 gas_flow=54.9 status=OK
+timestamp=2025-01-15T08:24:37Z tool_id=ETCH-002 module=C3 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=0 pressure=0.796 temp=91.2 rf_power=278 gas_flow=31.9 status=OK wafer_id=WFR-2478 slot=24
+timestamp=2025-01-15T08:25:10Z tool_id=ETCH-002 module=C3 event=PUMP_DOWN recipe=RCP_0002 step=0 pressure=1.407 temp=78.0 rf_power=338 gas_flow=44.5 status=OK
+timestamp=2025-01-15T08:25:28Z tool_id=ETCH-001 module=C1 event=IDLE recipe=RCP_0001 step=0 pressure=0.812 temp=92.3 rf_power=374 gas_flow=39.8 status=OK
+timestamp=2025-01-15T08:26:00Z tool_id=ETCH-001 module=C4 event=SENSOR_READ recipe=RCP_DRY_ETCH_01 step=0 pressure=0.838 temp=96.0 rf_power=360 gas_flow=32.4 status=OK
+timestamp=2025-01-15T08:26:18Z tool_id=ETCH-001 module=C2 event=ALARM recipe=RCP_0002 step=0 pressure=4.404 temp=149.1 rf_power=223 gas_flow=2.1 status=CRITICAL alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:26:47Z tool_id=ETCH-001 module=C4 event=RECIPE_START recipe=RCP_DRY_ETCH_01 step=1 pressure=0.979 temp=86.1 rf_power=304 gas_flow=35.7 status=OK
+timestamp=2025-01-15T08:27:13Z tool_id=ETCH-001 module=C4 event=IDLE recipe=RCP_0001 step=1 pressure=0.852 temp=98.4 rf_power=259 gas_flow=53.0 status=OK
+timestamp=2025-01-15T08:27:37Z tool_id=ETCH-002 module=C2 event=RECIPE_END recipe=RCP_0001 step=0 pressure=0.807 temp=90.6 rf_power=301 gas_flow=49.0 status=OK
+timestamp=2025-01-15T08:28:00Z tool_id=ETCH-002 module=C1 event=WAFER_LOAD recipe=RCP_0002 step=0 pressure=1.117 temp=77.6 rf_power=220 gas_flow=50.6 status=ERROR wafer_id=WFR-7496 slot=18
+timestamp=2025-01-15T08:28:29Z tool_id=ETCH-001 module=C4 event=IDLE recipe=RCP_DRY_ETCH_01 step=0 pressure=1.046 temp=79.7 rf_power=271 gas_flow=33.2 status=OK
+timestamp=2025-01-15T08:28:52Z tool_id=ETCH-002 module=C4 event=ALARM recipe=RCP_0001 step=0 pressure=4.783 temp=149.5 rf_power=230 gas_flow=8.2 status=WARNING alarm_code=ALM-TEMP-003 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:29:12Z tool_id=ETCH-001 module=C1 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=0 pressure=0.773 temp=94.4 rf_power=270 gas_flow=53.9 status=OK wafer_id=WFR-8601 slot=2
+timestamp=2025-01-15T08:29:45Z tool_id=ETCH-001 module=C2 event=IDLE recipe=RCP_0002 step=0 pressure=0.984 temp=89.4 rf_power=256 gas_flow=32.5 status=WARNING
+timestamp=2025-01-15T08:30:08Z tool_id=ETCH-001 module=C4 event=ALARM recipe=RCP_DRY_ETCH_01 step=0 pressure=5.264 temp=171.9 rf_power=216 gas_flow=6.7 status=CRITICAL alarm_code=ALM-RF-005 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:30:34Z tool_id=ETCH-002 module=C2 event=SENSOR_READ recipe=RCP_DRY_ETCH_01 step=0 pressure=0.822 temp=98.3 rf_power=222 gas_flow=45.6 status=OK
+timestamp=2025-01-15T08:30:55Z tool_id=ETCH-001 module=C2 event=WAFER_LOAD recipe=RCP_0002 step=0 pressure=0.765 temp=93.0 rf_power=238 gas_flow=31.0 status=WARNING wafer_id=WFR-9989 slot=8
+timestamp=2025-01-15T08:31:19Z tool_id=ETCH-001 module=C4 event=PUMP_DOWN recipe=RCP_DRY_ETCH_01 step=0 pressure=0.807 temp=79.6 rf_power=300 gas_flow=30.3 status=WARNING
+timestamp=2025-01-15T08:31:45Z tool_id=ETCH-001 module=C3 event=WAFER_UNLOAD recipe=RCP_0001 step=0 pressure=0.845 temp=87.5 rf_power=286 gas_flow=32.3 status=OK wafer_id=WFR-2996 slot=16
+timestamp=2025-01-15T08:32:06Z tool_id=ETCH-002 module=C2 event=STEP_COMPLETE recipe=RCP_0001 step=1 pressure=0.737 temp=97.2 rf_power=390 gas_flow=52.7 status=OK
+timestamp=2025-01-15T08:32:37Z tool_id=ETCH-002 module=C2 event=ALARM recipe=RCP_0001 step=1 pressure=4.359 temp=167.7 rf_power=329 gas_flow=8.2 status=CRITICAL alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:33:02Z tool_id=ETCH-001 module=C1 event=WAFER_LOAD recipe=RCP_0002 step=1 pressure=1.256 temp=89.2 rf_power=395 gas_flow=46.5 status=WARNING wafer_id=WFR-6050 slot=12
+timestamp=2025-01-15T08:33:30Z tool_id=ETCH-001 module=C2 event=WAFER_UNLOAD recipe=RCP_0001 step=1 pressure=1.243 temp=88.9 rf_power=228 gas_flow=31.7 status=OK wafer_id=WFR-2216 slot=19
+timestamp=2025-01-15T08:33:47Z tool_id=ETCH-001 module=C4 event=WAFER_LOAD recipe=RCP_DRY_ETCH_01 step=1 pressure=1.123 temp=92.3 rf_power=395 gas_flow=49.5 status=OK wafer_id=WFR-6753 slot=1
+timestamp=2025-01-15T08:34:12Z tool_id=ETCH-002 module=C3 event=IDLE recipe=RCP_0001 step=1 pressure=1.46 temp=99.4 rf_power=205 gas_flow=39.4 status=OK
+timestamp=2025-01-15T08:34:38Z tool_id=ETCH-002 module=C1 event=ALARM recipe=RCP_DRY_ETCH_01 step=1 pressure=5.207 temp=145.3 rf_power=358 gas_flow=8.4 status=ERROR alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:35:04Z tool_id=ETCH-001 module=C4 event=STEP_COMPLETE recipe=RCP_0002 step=2 pressure=1.015 temp=90.5 rf_power=252 gas_flow=57.7 status=OK
+timestamp=2025-01-15T08:35:30Z tool_id=ETCH-002 module=C3 event=PUMP_DOWN recipe=RCP_DRY_ETCH_01 step=2 pressure=0.924 temp=97.6 rf_power=259 gas_flow=33.9 status=OK
+timestamp=2025-01-15T08:35:58Z tool_id=ETCH-002 module=C4 event=IDLE recipe=RCP_DRY_ETCH_01 step=2 pressure=1.289 temp=82.7 rf_power=248 gas_flow=39.0 status=WARNING
+timestamp=2025-01-15T08:36:16Z tool_id=ETCH-001 module=C1 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=2 pressure=1.333 temp=96.5 rf_power=299 gas_flow=31.7 status=WARNING wafer_id=WFR-5002 slot=19
+timestamp=2025-01-15T08:36:49Z tool_id=ETCH-001 module=C4 event=PUMP_DOWN recipe=RCP_0001 step=2 pressure=1.416 temp=75.1 rf_power=320 gas_flow=45.5 status=OK
+timestamp=2025-01-15T08:37:13Z tool_id=ETCH-001 module=C1 event=PUMP_DOWN recipe=RCP_DRY_ETCH_01 step=2 pressure=1.157 temp=90.3 rf_power=218 gas_flow=55.1 status=ERROR
+timestamp=2025-01-15T08:37:32Z tool_id=ETCH-001 module=C4 event=GAS_STABILIZE recipe=RCP_0002 step=2 pressure=1.419 temp=94.2 rf_power=271 gas_flow=56.2 status=ERROR
+timestamp=2025-01-15T08:38:01Z tool_id=ETCH-002 module=C4 event=ALARM recipe=RCP_DRY_ETCH_01 step=2 pressure=5.718 temp=177.5 rf_power=367 gas_flow=2.1 status=ERROR alarm_code=ALM-TEMP-003 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:38:27Z tool_id=ETCH-002 module=C3 event=ALARM recipe=RCP_DRY_ETCH_01 step=2 pressure=4.448 temp=162.3 rf_power=319 gas_flow=8.2 status=WARNING alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:38:55Z tool_id=ETCH-001 module=C2 event=SENSOR_READ recipe=RCP_0002 step=2 pressure=1.469 temp=77.0 rf_power=277 gas_flow=32.3 status=OK
+timestamp=2025-01-15T08:39:18Z tool_id=ETCH-002 module=C1 event=ALARM recipe=RCP_DRY_ETCH_01 step=2 pressure=1.157 temp=87.7 rf_power=211 gas_flow=56.1 status=ERROR alarm_code=ALM-GAS-002 alarm_text="Sensor limit exceeded"
+timestamp=2025-01-15T08:39:36Z tool_id=ETCH-002 module=C4 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=2 pressure=0.876 temp=75.2 rf_power=343 gas_flow=39.9 status=OK wafer_id=WFR-1187 slot=11
+timestamp=2025-01-15T08:40:08Z tool_id=ETCH-001 module=C3 event=RECIPE_START recipe=RCP_0002 step=1 pressure=0.849 temp=94.2 rf_power=264 gas_flow=40.5 status=OK
+timestamp=2025-01-15T08:40:33Z tool_id=ETCH-001 module=C2 event=ALARM recipe=RCP_0002 step=1 pressure=1.4 temp=79.1 rf_power=275 gas_flow=32.1 status=OK alarm_code=ALM-PRES-001 alarm_text="Pressure excursion"
+timestamp=2025-01-15T08:40:55Z tool_id=ETCH-001 module=C4 event=SENSOR_READ recipe=RCP_0002 step=1 pressure=0.893 temp=90.4 rf_power=397 gas_flow=34.8 status=OK
+timestamp=2025-01-15T08:41:15Z tool_id=ETCH-001 module=C4 event=GAS_STABILIZE recipe=RCP_0001 step=1 pressure=0.781 temp=76.6 rf_power=347 gas_flow=49.5 status=OK
+timestamp=2025-01-15T08:41:50Z tool_id=ETCH-001 module=C2 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=2 pressure=1.405 temp=93.7 rf_power=322 gas_flow=51.1 status=OK
+timestamp=2025-01-15T08:42:08Z tool_id=ETCH-002 module=C1 event=SENSOR_READ recipe=RCP_0001 step=2 pressure=1.027 temp=90.2 rf_power=253 gas_flow=52.3 status=OK
+timestamp=2025-01-15T08:42:34Z tool_id=ETCH-002 module=C1 event=ALARM recipe=RCP_0002 step=2 pressure=0.763 temp=84.1 rf_power=360 gas_flow=31.6 status=OK alarm_code=ALM-PRES-001 alarm_text="Pressure excursion"
+timestamp=2025-01-15T08:42:56Z tool_id=ETCH-001 module=C3 event=RECIPE_END recipe=RCP_0002 step=0 pressure=1.139 temp=91.6 rf_power=310 gas_flow=52.8 status=OK
+timestamp=2025-01-15T08:43:23Z tool_id=ETCH-002 module=C3 event=WAFER_UNLOAD recipe=RCP_0002 step=0 pressure=1.155 temp=100.0 rf_power=369 gas_flow=43.6 status=OK wafer_id=WFR-6259 slot=7
+timestamp=2025-01-15T08:43:51Z tool_id=ETCH-002 module=C3 event=WAFER_UNLOAD recipe=RCP_DRY_ETCH_01 step=0 pressure=1.05 temp=95.5 rf_power=356 gas_flow=53.9 status=OK wafer_id=WFR-6478 slot=15
+timestamp=2025-01-15T08:44:19Z tool_id=ETCH-001 module=C2 event=IDLE recipe=RCP_0001 step=0 pressure=1.037 temp=76.2 rf_power=255 gas_flow=54.0 status=OK
+timestamp=2025-01-15T08:44:38Z tool_id=ETCH-002 module=C1 event=WAFER_LOAD recipe=RCP_0001 step=0 pressure=1.482 temp=80.9 rf_power=398 gas_flow=44.0 status=OK wafer_id=WFR-1091 slot=25
+timestamp=2025-01-15T08:45:00Z tool_id=ETCH-002 module=C4 event=WAFER_UNLOAD recipe=RCP_0001 step=0 pressure=0.836 temp=93.5 rf_power=362 gas_flow=31.7 status=OK wafer_id=WFR-7370 slot=11
+timestamp=2025-01-15T08:45:29Z tool_id=ETCH-002 module=C3 event=STEP_COMPLETE recipe=RCP_DRY_ETCH_01 step=1 pressure=0.865 temp=84.7 rf_power=232 gas_flow=40.5 status=OK

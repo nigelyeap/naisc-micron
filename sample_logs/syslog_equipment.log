@@ -1,0 +1,110 @@
+<132>2025-01-15T06:00:05.428Z EUV-SCN-001 rf_generator[4567]: Gas flow GL-7 fluctuation: 5.89 sccm deviation
+<134>2025-01-15T06:00:55.410Z ETCH-TOOL-002 gas_system[2345]: Wafer WFR-2162 unloaded from chamber C2, processing time 466s
+<132>2025-01-15T06:01:48.623Z ETCH-TOOL-002 wafer_handler[5678]: Thermal drift in chamber C1: 7.93C above nominal
+<134>2025-01-15T06:02:28.792Z EUV-SCN-001 rf_generator[4567]: Gas line GL-3 flow stabilized at 64.4 sccm
+<134>2025-01-15T06:03:00.391Z EUV-SCN-001 gas_system[2345]: Wafer WFR-3269 unloaded from chamber C1, processing time 252s
+<134>2025-01-15T06:03:46.809Z ETCH-TOOL-001 rf_generator[4567]: Lot LOT-C2614 wafer 18/25 processing started
+<131>2025-01-15T06:04:41.066Z ETCH-TOOL-002 thermal_mgr[6789]: Chamber C4 pressure excursion: 4.0Pa (limit: 2.0Pa) - recipe paused
+<134>2025-01-15T06:05:29.641Z EUV-SCN-001 wafer_handler[5678]: Temperature setpoint 79.4C reached in chamber C3
+<134>2025-01-15T06:06:16.260Z ETCH-TOOL-001 thermal_mgr[6789]: Gas line GL-5 flow stabilized at 53.4 sccm
+<134>2025-01-15T06:06:45.378Z ETCH-TOOL-001 gas_system[2345]: Vacuum pump VP-2 base pressure reached: 0.0024 Pa
+<134>2025-01-15T06:07:36.368Z ETCH-TOOL-002 vacuum_ctrl[3456]: Temperature setpoint 88.1C reached in chamber C1
+<134>2025-01-15T06:08:16.222Z EUV-SCN-001 thermal_mgr[6789]: Temperature setpoint 100.0C reached in chamber C1
+<134>2025-01-15T06:09:06.759Z ETCH-TOOL-001 gas_system[2345]: Wafer WFR-9105 unloaded from chamber C3, processing time 277s
+<134>2025-01-15T06:09:59.201Z ETCH-TOOL-002 gas_system[2345]: Wafer WFR-8339 loaded into chamber C4, carrier FOUP-1612
+<134>2025-01-15T06:10:45.223Z ETCH-TOOL-001 thermal_mgr[6789]: Wafer WFR-7777 loaded into chamber C3, carrier FOUP-1061
+<134>2025-01-15T06:11:22.793Z EUV-SCN-001 wafer_handler[5678]: Wafer WFR-6379 loaded into chamber C1, carrier FOUP-1306
+<130>2025-01-15T06:12:16.715Z EUV-SCN-001 process_controller[1234]: Vacuum integrity failure in chamber C4: pressure rising at 0.749 Pa/s
+<131>2025-01-15T06:12:54.315Z ETCH-TOOL-002 process_controller[1234]: Chamber C3 pressure excursion: 2.14Pa (limit: 2.0Pa) - recipe paused
+<134>2025-01-15T06:13:42.194Z ETCH-TOOL-002 thermal_mgr[6789]: RF power ramp complete: forward=262.0W reflected=49.8W
+<132>2025-01-15T06:14:30.666Z EUV-SCN-001 thermal_mgr[6789]: Gas flow GL-1 fluctuation: 6.27 sccm deviation
+<134>2025-01-15T06:15:08.474Z EUV-SCN-001 vacuum_ctrl[3456]: RF power ramp complete: forward=285.0W reflected=9.2W
+<134>2025-01-15T06:15:51.744Z ETCH-TOOL-002 rf_generator[4567]: RF power ramp complete: forward=373.0W reflected=39.4W
+<134>2025-01-15T06:16:50.001Z EUV-SCN-001 process_controller[1234]: RF power ramp complete: forward=360.0W reflected=48.6W
+<132>2025-01-15T06:17:22.673Z EUV-SCN-001 rf_generator[4567]: Thermal drift in chamber C3: 6.77C above nominal
+<134>2025-01-15T06:18:02.208Z EUV-SCN-001 gas_system[2345]: Vacuum pump VP-3 base pressure reached: 0.0094 Pa
+<134>2025-01-15T06:18:48.342Z EUV-SCN-001 gas_system[2345]: Endpoint detection signal triggered at 51.9s into step 5
+<134>2025-01-15T06:19:42.819Z EUV-SCN-001 vacuum_ctrl[3456]: Vacuum pump VP-1 base pressure reached: 0.0051 Pa
+<132>2025-01-15T06:20:28.389Z ETCH-TOOL-002 gas_system[2345]: Thermal drift in chamber C3: 4.97C above nominal
+<132>2025-01-15T06:21:19.408Z EUV-SCN-001 rf_generator[4567]: RF reflected power elevated: 28.8W (22.8% of forward)
+<131>2025-01-15T06:21:46.991Z ETCH-TOOL-002 wafer_handler[5678]: Wafer handler position error: 1.69mm from expected
+<134>2025-01-15T06:22:45.992Z EUV-SCN-001 thermal_mgr[6789]: RF power ramp complete: forward=204.0W reflected=49.0W
+<131>2025-01-15T06:23:24.368Z ETCH-TOOL-002 vacuum_ctrl[3456]: Gas leak detected on line GL-7: 1.17 sccm unaccounted flow
+<134>2025-01-15T06:24:15.121Z EUV-SCN-001 wafer_handler[5678]: Chamber C4 recipe RCP_DRY_ETCH_01 step 3 completed successfully
+<130>2025-01-15T06:25:03.879Z ETCH-TOOL-002 wafer_handler[5678]: EMERGENCY STOP triggered on chamber C4 - all processes aborted
+<134>2025-01-15T06:25:44.017Z EUV-SCN-001 process_controller[1234]: Wafer WFR-4242 loaded into chamber C4, carrier FOUP-1141
+<134>2025-01-15T06:26:16.132Z ETCH-TOOL-002 rf_generator[4567]: Endpoint detection signal triggered at 157.1s into step 3
+<134>2025-01-15T06:27:05.132Z ETCH-TOOL-002 thermal_mgr[6789]: Lot LOT-B3948 wafer 16/25 processing started
+<134>2025-01-15T06:27:57.552Z ETCH-TOOL-002 thermal_mgr[6789]: Temperature setpoint 91.0C reached in chamber C2
+<130>2025-01-15T06:28:49.642Z ETCH-TOOL-002 gas_system[2345]: EMERGENCY STOP triggered on chamber C4 - all processes aborted
+<134>2025-01-15T06:29:31.597Z EUV-SCN-001 thermal_mgr[6789]: Chamber C4 recipe RCP_0002 step 5 started, pressure=0.74Pa temp=90.8C
+<132>2025-01-15T06:30:03.332Z ETCH-TOOL-002 process_controller[1234]: Gas flow GL-2 fluctuation: 5.2 sccm deviation
+<131>2025-01-15T06:30:58.228Z EUV-SCN-001 rf_generator[4567]: RF generator fault: overcurrent detected at 13.8A
+<134>2025-01-15T06:31:39.674Z EUV-SCN-001 wafer_handler[5678]: Chamber C4 recipe RCP_0002 step 1 completed successfully
+<131>2025-01-15T06:32:27.307Z EUV-SCN-001 wafer_handler[5678]: Wafer handler position error: 2.57mm from expected
+<134>2025-01-15T06:33:03.247Z ETCH-TOOL-001 gas_system[2345]: Lot LOT-B1974 wafer 24/25 processing started
+<134>2025-01-15T06:34:00.840Z ETCH-TOOL-001 gas_system[2345]: Vacuum pump VP-2 base pressure reached: 0.0048 Pa
+<134>2025-01-15T06:34:48.424Z EUV-SCN-001 process_controller[1234]: Chamber C1 recipe RCP_0001 step 5 completed successfully
+<134>2025-01-15T06:35:35.124Z ETCH-TOOL-002 rf_generator[4567]: Lot LOT-B7255 wafer 12/25 processing started
+<134>2025-01-15T06:36:14.349Z ETCH-TOOL-001 gas_system[2345]: Chamber C2 recipe RCP_0001 step 4 completed successfully
+<134>2025-01-15T06:36:53.604Z EUV-SCN-001 gas_system[2345]: Chamber C3 recipe RCP_0002 step 1 completed successfully
+<132>2025-01-15T06:37:47.674Z ETCH-TOOL-001 gas_system[2345]: Gas flow GL-8 fluctuation: 6.44 sccm deviation
+<134>2025-01-15T06:38:18.172Z ETCH-TOOL-001 vacuum_ctrl[3456]: RF power ramp complete: forward=278.0W reflected=5.3W
+<134>2025-01-15T06:39:17.733Z ETCH-TOOL-002 rf_generator[4567]: Wafer WFR-8662 loaded into chamber C1, carrier FOUP-1722
+<134>2025-01-15T06:39:58.586Z ETCH-TOOL-002 gas_system[2345]: Endpoint detection signal triggered at 163.2s into step 5
+<132>2025-01-15T06:40:33.412Z EUV-SCN-001 gas_system[2345]: Thermal drift in chamber C4: 6.35C above nominal
+<131>2025-01-15T06:41:24.279Z ETCH-TOOL-001 gas_system[2345]: RF generator fault: overcurrent detected at 18.3A
+<132>2025-01-15T06:42:14.828Z EUV-SCN-001 rf_generator[4567]: Chamber C3 pressure deviation: 0.455Pa from setpoint (threshold: 0.1Pa)
+<134>2025-01-15T06:42:47.027Z EUV-SCN-001 rf_generator[4567]: Chamber C2 recipe RCP_0001 step 4 started, pressure=1.15Pa temp=90.8C
+<132>2025-01-15T06:43:31.501Z EUV-SCN-001 wafer_handler[5678]: Gas flow GL-2 fluctuation: 5.35 sccm deviation
+<134>2025-01-15T06:44:17.566Z EUV-SCN-001 gas_system[2345]: Temperature setpoint 99.9C reached in chamber C2
+<134>2025-01-15T06:45:15.236Z ETCH-TOOL-002 vacuum_ctrl[3456]: Wafer WFR-2869 unloaded from chamber C2, processing time 598s
+<134>2025-01-15T06:45:59.825Z EUV-SCN-001 wafer_handler[5678]: Wafer WFR-2309 unloaded from chamber C1, processing time 592s
+<134>2025-01-15T06:46:44.366Z ETCH-TOOL-001 process_controller[1234]: Temperature setpoint 95.9C reached in chamber C3
+<134>2025-01-15T06:47:31.287Z ETCH-TOOL-002 thermal_mgr[6789]: Chamber C4 recipe RCP_0001 step 1 started, pressure=1.1Pa temp=98.0C
+<131>2025-01-15T06:48:00.539Z ETCH-TOOL-002 thermal_mgr[6789]: Gas leak detected on line GL-6: 0.87 sccm unaccounted flow
+<134>2025-01-15T06:48:56.082Z ETCH-TOOL-002 vacuum_ctrl[3456]: Endpoint detection signal triggered at 150.5s into step 1
+<134>2025-01-15T06:49:36.935Z EUV-SCN-001 thermal_mgr[6789]: Lot LOT-C9680 wafer 25/25 processing started
+<134>2025-01-15T06:50:30.183Z ETCH-TOOL-002 rf_generator[4567]: Gas line GL-2 flow stabilized at 61.3 sccm
+<134>2025-01-15T06:51:20.778Z ETCH-TOOL-001 vacuum_ctrl[3456]: Endpoint detection signal triggered at 114.1s into step 4
+<130>2025-01-15T06:51:50.582Z ETCH-TOOL-001 gas_system[2345]: Chamber C3 temperature runaway: 162.0C (safety limit: 150C)
+<134>2025-01-15T06:52:48.954Z ETCH-TOOL-001 process_controller[1234]: Vacuum pump VP-1 base pressure reached: 0.007 Pa
+<134>2025-01-15T06:53:30.332Z ETCH-TOOL-001 process_controller[1234]: Lot LOT-B7616 wafer 13/25 processing started
+<134>2025-01-15T06:54:00.508Z ETCH-TOOL-002 gas_system[2345]: Gas line GL-4 flow stabilized at 36.3 sccm
+<134>2025-01-15T06:54:57.369Z ETCH-TOOL-001 process_controller[1234]: Vacuum pump VP-3 base pressure reached: 0.0046 Pa
+<134>2025-01-15T06:55:37.422Z EUV-SCN-001 vacuum_ctrl[3456]: Vacuum pump VP-1 base pressure reached: 0.0058 Pa
+<132>2025-01-15T06:56:29.713Z EUV-SCN-001 gas_system[2345]: Chamber C1 pressure deviation: 0.297Pa from setpoint (threshold: 0.1Pa)
+<134>2025-01-15T06:57:00.008Z ETCH-TOOL-002 vacuum_ctrl[3456]: Wafer WFR-4348 unloaded from chamber C2, processing time 533s
+<134>2025-01-15T06:57:47.985Z ETCH-TOOL-002 rf_generator[4567]: Wafer WFR-7240 unloaded from chamber C2, processing time 510s
+<134>2025-01-15T06:58:46.888Z EUV-SCN-001 thermal_mgr[6789]: RF power ramp complete: forward=444.0W reflected=12.9W
+<134>2025-01-15T06:59:15.828Z ETCH-TOOL-001 thermal_mgr[6789]: Vacuum pump VP-3 base pressure reached: 0.0067 Pa
+<134>2025-01-15T07:00:13.002Z EUV-SCN-001 process_controller[1234]: Chamber C2 recipe RCP_0001 step 2 started, pressure=1.07Pa temp=77.2C
+<132>2025-01-15T07:00:48.223Z ETCH-TOOL-002 thermal_mgr[6789]: Thermal drift in chamber C4: 7.02C above nominal
+<134>2025-01-15T07:01:38.909Z EUV-SCN-001 vacuum_ctrl[3456]: Vacuum pump VP-2 base pressure reached: 0.0011 Pa
+<134>2025-01-15T07:02:18.466Z ETCH-TOOL-002 vacuum_ctrl[3456]: Lot LOT-B2045 wafer 20/25 processing started
+<134>2025-01-15T07:03:07.257Z EUV-SCN-001 vacuum_ctrl[3456]: Wafer WFR-2635 unloaded from chamber C1, processing time 581s
+<131>2025-01-15T07:03:57.765Z ETCH-TOOL-001 gas_system[2345]: Gas leak detected on line GL-3: 2.24 sccm unaccounted flow
+<132>2025-01-15T07:04:42.498Z ETCH-TOOL-001 wafer_handler[5678]: Vacuum pump VP-4 vibration level elevated: 10.5 mm/s
+<131>2025-01-15T07:05:22.405Z EUV-SCN-001 gas_system[2345]: RF generator fault: overcurrent detected at 14.8A
+<130>2025-01-15T07:06:01.734Z ETCH-TOOL-002 vacuum_ctrl[3456]: Chamber C3 temperature runaway: 166.8C (safety limit: 150C)
+<134>2025-01-15T07:07:00.709Z ETCH-TOOL-002 process_controller[1234]: Endpoint detection signal triggered at 31.9s into step 3
+<134>2025-01-15T07:07:46.741Z ETCH-TOOL-001 process_controller[1234]: Vacuum pump VP-2 base pressure reached: 0.0051 Pa
+<134>2025-01-15T07:08:35.363Z ETCH-TOOL-002 gas_system[2345]: Chamber C2 recipe RCP_0002 step 3 completed successfully
+<134>2025-01-15T07:09:02.808Z ETCH-TOOL-002 wafer_handler[5678]: RF power ramp complete: forward=375.0W reflected=21.5W
+<134>2025-01-15T07:10:01.322Z ETCH-TOOL-002 process_controller[1234]: Gas line GL-3 flow stabilized at 36.9 sccm
+<134>2025-01-15T07:10:42.984Z ETCH-TOOL-002 gas_system[2345]: Temperature setpoint 82.8C reached in chamber C4
+<134>2025-01-15T07:11:35.716Z ETCH-TOOL-002 vacuum_ctrl[3456]: Gas line GL-1 flow stabilized at 57.4 sccm
+<132>2025-01-15T07:12:20.443Z ETCH-TOOL-001 wafer_handler[5678]: Thermal drift in chamber C2: 6.67C above nominal
+<131>2025-01-15T07:12:52.840Z ETCH-TOOL-001 vacuum_ctrl[3456]: RF generator fault: overcurrent detected at 17.2A
+<132>2025-01-15T07:13:35.465Z ETCH-TOOL-001 thermal_mgr[6789]: Vacuum pump VP-3 vibration level elevated: 8.9 mm/s
+<134>2025-01-15T07:14:31.844Z EUV-SCN-001 vacuum_ctrl[3456]: Temperature setpoint 83.1C reached in chamber C3
+<134>2025-01-15T07:15:19.829Z EUV-SCN-001 rf_generator[4567]: RF power ramp complete: forward=436.0W reflected=47.6W
+<132>2025-01-15T07:15:57.159Z EUV-SCN-001 thermal_mgr[6789]: Chamber C4 pressure deviation: 0.254Pa from setpoint (threshold: 0.1Pa)
+<134>2025-01-15T07:16:32.046Z ETCH-TOOL-002 vacuum_ctrl[3456]: Lot LOT-B8860 wafer 9/25 processing started
+<134>2025-01-15T07:17:27.921Z ETCH-TOOL-002 process_controller[1234]: Gas line GL-8 flow stabilized at 42.4 sccm
+<132>2025-01-15T07:18:00.648Z ETCH-TOOL-001 thermal_mgr[6789]: RF reflected power elevated: 44.5W (22.1% of forward)
+<134>2025-01-15T07:18:56.380Z EUV-SCN-001 gas_system[2345]: Wafer WFR-3677 unloaded from chamber C2, processing time 407s
+<132>2025-01-15T07:19:50.307Z ETCH-TOOL-001 rf_generator[4567]: Vacuum pump VP-3 vibration level elevated: 5.3 mm/s
+<134>2025-01-15T07:20:16.936Z EUV-SCN-001 rf_generator[4567]: Vacuum pump VP-3 base pressure reached: 0.0044 Pa
+<132>2025-01-15T07:21:06.525Z EUV-SCN-001 wafer_handler[5678]: Vacuum pump VP-4 vibration level elevated: 8.4 mm/s
+<131>2025-01-15T07:22:00.615Z ETCH-TOOL-002 thermal_mgr[6789]: Chamber C1 pressure excursion: 2.77Pa (limit: 2.0Pa) - recipe paused
