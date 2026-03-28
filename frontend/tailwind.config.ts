@@ -59,8 +59,8 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Fira Sans', 'system-ui', 'sans-serif'],
+        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
       },
     },
   },

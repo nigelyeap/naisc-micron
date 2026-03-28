@@ -168,7 +168,7 @@ export function ExplorerPage() {
             <button
               key={s}
               onClick={() => { setLimit(s); setOffset(0) }}
-              className={`px-2 py-0.5 rounded ${limit === s ? 'bg-accent-blue/20 text-accent-blue' : 'hover:bg-bg-raised text-text-muted'}`}
+              className={`px-2 py-0.5 rounded cursor-pointer ${limit === s ? 'bg-accent-blue/20 text-accent-blue' : 'hover:bg-bg-raised text-text-muted'}`}
             >
               {s}
             </button>

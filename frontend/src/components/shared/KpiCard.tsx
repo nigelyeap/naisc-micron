@@ -21,7 +21,7 @@ const accentText: Record<KpiCardProps['accent'], string> = {
 
 export function KpiCard({ label, value, accent, sub }: KpiCardProps) {
   return (
-    <div className={`bg-bg-panel border-l-2 ${accentBorder[accent]} px-4 py-3`}>
+    <div className={`bg-bg-panel border-l-2 ${accentBorder[accent]} px-4 py-3 transition-all duration-200 hover:bg-bg-raised hover:shadow-lg group cursor-default`}>
       <p className="text-text-muted text-[11px] font-medium uppercase tracking-wider mb-1">
         {label}
       </p>

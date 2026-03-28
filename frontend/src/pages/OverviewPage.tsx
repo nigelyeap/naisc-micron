@@ -50,8 +50,10 @@ export function OverviewPage() {
         <div className="bg-bg-panel border border-border p-4">
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-4">Severity Distribution</p>
           {summaryLoading ? (
-            <div className="h-[180px] flex items-center justify-center">
-              <div className="w-4 h-4 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" />
+            <div className="h-[180px] flex flex-col justify-end gap-2 pb-2">
+              {[65, 90, 40, 75, 55, 30].map((w, i) => (
+                <div key={i} className="h-5 bg-bg-raised animate-pulse rounded-sm" style={{ width: `${w}%` }} />
+              ))}
             </div>
           ) : (
           <ResponsiveContainer width="100%" height={180}>
@@ -78,8 +80,10 @@ export function OverviewPage() {
         <div className="bg-bg-panel border border-border p-4">
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-4">Records by Tool</p>
           {summaryLoading ? (
-            <div className="h-[180px] flex items-center justify-center">
-              <div className="w-4 h-4 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" />
+            <div className="h-[180px] flex flex-col justify-end gap-2 pb-2">
+              {[65, 90, 40, 75, 55, 30].map((w, i) => (
+                <div key={i} className="h-5 bg-bg-raised animate-pulse rounded-sm" style={{ width: `${w}%` }} />
+              ))}
             </div>
           ) : (
           <ResponsiveContainer width="100%" height={180}>
