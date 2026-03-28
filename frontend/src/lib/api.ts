@@ -2,6 +2,15 @@ import axios from 'axios'
 
 const http = axios.create({ baseURL: '/api' })
 
+http.interceptors.response.use(
+  r => r,
+  err => {
+    const detail = err?.response?.data?.detail
+    if (detail) err.message = typeof detail === 'string' ? detail : JSON.stringify(detail)
+    return Promise.reject(err)
+  }
+)
+
 // ---- Types -----------------------------------------------------------------
 
 export interface LogFile {
@@ -31,7 +40,7 @@ export interface LogRecord {
 
 export interface Anomaly {
   id: number
-  record_id: number
+  record_id: number | string
   parameter: string
   value: number
   expected_min: number
@@ -64,6 +73,7 @@ export interface SummaryStats {
 }
 
 export interface TimeseriesPoint {
+  record_id: number
   timestamp: string
   tool_id: string
   parameter: string
@@ -98,6 +108,8 @@ export interface RecordFilters {
   file_id?: number
   limit?: number
   offset?: number
+  start_date?: string
+  end_date?: string
 }
 
 // ---- API functions ---------------------------------------------------------
