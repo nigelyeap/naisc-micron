@@ -105,6 +105,7 @@ export interface RecordFilters {
   tool_id?: string
   event_type?: string
   severity?: string
+  source_format?: string
   file_id?: number
   limit?: number
   offset?: number
