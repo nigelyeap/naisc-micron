@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { api } from '@/lib/api'
 import { ErrorBanner } from '@/components/shared/ErrorBanner'
+import { Input } from '@/components/ui/input'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
   PieChart, Pie, Legend, LineChart, Line,
@@ -83,11 +84,11 @@ export function AnalyticsPage() {
         <div className="bg-bg-panel border border-border p-4 col-span-2">
           <div className="flex items-center justify-between mb-4">
             <p className="text-text-muted text-[11px] uppercase tracking-wider">Parameter Timeseries</p>
-            <input
+            <Input
               value={tsParam}
               onChange={e => setTsParam(e.target.value)}
               placeholder="parameter name"
-              className="bg-bg-raised border border-border text-text-primary text-xs px-2 py-1 rounded w-40 outline-none focus:border-accent-blue"
+              className="bg-bg-raised border-border text-text-primary text-xs h-7 w-40 focus:border-accent-blue"
             />
           </div>
           {tsData.length > 0 ? (

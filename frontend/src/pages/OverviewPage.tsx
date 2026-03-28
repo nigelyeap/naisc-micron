@@ -11,7 +11,7 @@ import {
 
 
 export function OverviewPage() {
-  const { data: summary, error: summaryErr } = useQuery({
+  const { data: summary, error: summaryErr, isLoading: summaryLoading } = useQuery({
     queryKey: ['summary'],
     queryFn: api.getSummary,
   })
@@ -49,6 +49,11 @@ export function OverviewPage() {
         {/* Severity distribution */}
         <div className="bg-bg-panel border border-border p-4">
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-4">Severity Distribution</p>
+          {summaryLoading ? (
+            <div className="h-[180px] flex items-center justify-center">
+              <div className="w-4 h-4 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : (
           <ResponsiveContainer width="100%" height={180}>
             <BarChart data={severityData} barSize={24}>
               <XAxis dataKey="name" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
@@ -66,11 +71,17 @@ export function OverviewPage() {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
+          )}
         </div>
 
         {/* Tool breakdown */}
         <div className="bg-bg-panel border border-border p-4">
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-4">Records by Tool</p>
+          {summaryLoading ? (
+            <div className="h-[180px] flex items-center justify-center">
+              <div className="w-4 h-4 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : (
           <ResponsiveContainer width="100%" height={180}>
             <BarChart data={toolData} layout="vertical" barSize={14}>
               <XAxis type="number" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
@@ -82,6 +93,7 @@ export function OverviewPage() {
               <Bar dataKey="value" fill="#3b82f6" radius={[0, 2, 2, 0]} />
             </BarChart>
           </ResponsiveContainer>
+          )}
         </div>
       </div>
 

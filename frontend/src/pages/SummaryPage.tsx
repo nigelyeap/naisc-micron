@@ -55,7 +55,7 @@ ${toolLines || '_No data_'}
 export function SummaryPage() {
   const [generated, setGenerated] = useState(false)
 
-  const { data: summary, error, refetch, isFetching } = useQuery({
+  const { data: summary, error, isFetching } = useQuery({
     queryKey: ['summary'],
     queryFn: api.getSummary,
     enabled: generated,
@@ -63,7 +63,6 @@ export function SummaryPage() {
 
   function generate() {
     setGenerated(true)
-    refetch()
   }
 
   function exportMd() {

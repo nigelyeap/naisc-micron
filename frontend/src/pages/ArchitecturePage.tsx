@@ -122,7 +122,7 @@ export function ArchitecturePage() {
                     style={{
                       borderTop: '4px solid transparent',
                       borderBottom: '4px solid transparent',
-                      borderLeft: '5px solid #1e2028',
+                      borderLeft: '5px solid #3b4050',
                     }}
                   />
                 </div>

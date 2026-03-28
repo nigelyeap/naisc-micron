@@ -12,7 +12,8 @@ import { formatMs, formatConfidence } from '@/lib/utils'
 export function UploadPage() {
   const qc = useQueryClient()
   const inputRef = useRef<HTMLInputElement>(null)
-  const [results, setResults] = useState<UploadResponse[]>([])
+  const uploadCounter = useRef(0)
+  const [results, setResults] = useState<Array<UploadResponse & { _key: number }>>([])
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [dragOver, setDragOver] = useState(false)
@@ -26,12 +27,12 @@ export function UploadPage() {
     setUploading(true)
     setError(null)
     const arr = Array.from(files)
-    const newResults: UploadResponse[] = []
+    const newResults: Array<UploadResponse & { _key: number }> = []
     const errors: string[] = []
     for (const file of arr) {
       try {
         const res = await api.uploadFile(file)
-        newResults.push(res)
+        newResults.push({ ...res, _key: uploadCounter.current++ })
       } catch {
         errors.push(`Failed to upload "${file.name}"`)
       }
@@ -51,7 +52,7 @@ export function UploadPage() {
     setError(null)
     try {
       const res = await api.uploadSample(name)
-      setResults(prev => [res, ...prev])
+      setResults(prev => [{ ...res, _key: uploadCounter.current++ }, ...prev])
       qc.invalidateQueries()
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Upload failed'
@@ -118,7 +119,7 @@ export function UploadPage() {
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-3">Parse Results</p>
           <div className="space-y-3">
             {results.map((r) => (
-              <div key={r.file_id} className="bg-bg-panel border border-border p-4 space-y-3">
+              <div key={r._key} className="bg-bg-panel border border-border p-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <FileCheck className="w-4 h-4 text-accent-green shrink-0" />
                   <span className="text-text-primary font-medium flex-1 truncate">{r.filename}</span>
