@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    /* Custom design tokens (keep as hex — used directly via var()) */
     --bg-base:        #111318;
     --bg-panel:       #161a22;
     --bg-raised:      #1e2028;
@@ -17,27 +18,26 @@
     --accent-amber:   #f59e0b;
     --accent-green:   #22c55e;
 
-    /* shadcn/ui mappings */
-    --background:     #111318;
-    --foreground:     #e2e8f0;
-    --card:           #161a22;
-    --card-foreground:#e2e8f0;
-    --popover:        #161a22;
-    --popover-foreground: #e2e8f0;
-    --primary:        #3b82f6;
-    --primary-foreground: #fff;
-    --secondary:      #1e2028;
-    --secondary-foreground: #e2e8f0;
-    --muted:          #1e2028;
-    --muted-foreground: #64748b;
-    --accent:         #1e2028;
-    --accent-foreground: #e2e8f0;
-    --destructive:    #ef4444;
-    --destructive-foreground: #fff;
-    --border-radius:  0.375rem;
-    --input:          #1e2028;
-    --ring:           #3b82f6;
-    --radius:         0.5rem;
+    /* shadcn/ui semantic tokens — HSL channels (no hsl() wrapper) */
+    --background:       222 19% 14%;
+    --foreground:       216 32% 91%;
+    --card:             226 21% 11%;
+    --card-foreground:  216 32% 91%;
+    --popover:          226 21% 11%;
+    --popover-foreground: 216 32% 91%;
+    --primary:          217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:        224 17% 14%;
+    --secondary-foreground: 216 32% 91%;
+    --muted:            224 17% 14%;
+    --muted-foreground: 215 16% 47%;
+    --accent:           224 17% 14%;
+    --accent-foreground: 216 32% 91%;
+    --destructive:      0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --input:            224 17% 14%;
+    --ring:             217 91% 60%;
+    --radius:           0.5rem;
   }
 
   * {
