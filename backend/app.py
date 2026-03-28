@@ -13,6 +13,7 @@ import os
 import sys
 import tempfile
 import time
+from pathlib import Path
 from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
@@ -287,6 +288,38 @@ async def upload_file(file: UploadFile = File(...)):
 def list_files():
     """List all uploaded files with metadata."""
     return db.get_files()
+
+
+# -- Sample logs -------------------------------------------------------------
+
+_SAMPLE_LOGS_DIR = Path(_PROJECT_ROOT) / "sample_logs"
+
+
+@app.get("/api/samples")
+def list_samples():
+    """List available sample log filenames (non-.py files in sample_logs/)."""
+    if not _SAMPLE_LOGS_DIR.is_dir():
+        return []
+    return [
+        f.name
+        for f in sorted(_SAMPLE_LOGS_DIR.iterdir())
+        if f.suffix != ".py" and f.is_file()
+    ]
+
+
+@app.post("/api/samples/upload/{filename}", response_model=UploadResponse)
+async def upload_sample(filename: str):
+    """Parse and store a sample log file by name."""
+    import io
+    from starlette.datastructures import UploadFile as StarletteUploadFile
+
+    path = _SAMPLE_LOGS_DIR / filename
+    if not path.exists() or not path.is_file():
+        raise HTTPException(status_code=404, detail=f"Sample '{filename}' not found.")
+
+    content = path.read_bytes()
+    fake_file = StarletteUploadFile(filename=filename, file=io.BytesIO(content))
+    return await upload_file(fake_file)
 
 
 # -- Records -----------------------------------------------------------------
