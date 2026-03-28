@@ -27,17 +27,22 @@ export function UploadPage() {
     setError(null)
     const arr = Array.from(files)
     const newResults: UploadResponse[] = []
+    const errors: string[] = []
     for (const file of arr) {
       try {
         const res = await api.uploadFile(file)
         newResults.push(res)
-      } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : 'Upload failed'
-        setError(`Failed to upload "${file.name}": ${msg}`)
+      } catch {
+        errors.push(`Failed to upload "${file.name}"`)
       }
     }
-    setResults(prev => [...newResults, ...prev])
-    qc.invalidateQueries()
+    if (errors.length > 0) {
+      setError(errors.length === 1 ? errors[0] : `${errors.length} files failed to upload`)
+    }
+    if (newResults.length > 0) {
+      setResults(prev => [...newResults, ...prev])
+      qc.invalidateQueries()
+    }
     setUploading(false)
   }
 
@@ -112,8 +117,8 @@ export function UploadPage() {
         <div>
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-3">Parse Results</p>
           <div className="space-y-3">
-            {results.map((r, i) => (
-              <div key={i} className="bg-bg-panel border border-border p-4 space-y-3">
+            {results.map((r) => (
+              <div key={r.file_id} className="bg-bg-panel border border-border p-4 space-y-3">
                 <div className="flex items-center gap-3">
                   <FileCheck className="w-4 h-4 text-accent-green shrink-0" />
                   <span className="text-text-primary font-medium flex-1 truncate">{r.filename}</span>

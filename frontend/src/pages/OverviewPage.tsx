@@ -25,7 +25,7 @@ export function OverviewPage() {
     ? Object.entries(summary.severity_breakdown).map(([k, v]) => ({ name: k || 'null', value: v }))
     : []
 
-  const formatData = summary
+  const toolData = summary
     ? Object.entries(summary.tool_breakdown).map(([k, v]) => ({ name: k || 'unknown', value: v }))
     : []
 
@@ -61,7 +61,7 @@ export function OverviewPage() {
                 {severityData.map((entry, i) => {
                   const c = entry.name.toUpperCase()
                   const fill = c.includes('CRIT') ? '#ef4444' : c.includes('WARN') ? '#f59e0b' : c.includes('INFO') ? '#3b82f6' : '#64748b'
-                  return <Cell key={i} fill={fill} />
+                  return <Cell key={entry.name} fill={fill} />
                 })}
               </Bar>
             </BarChart>
@@ -72,7 +72,7 @@ export function OverviewPage() {
         <div className="bg-bg-panel border border-border p-4">
           <p className="text-text-muted text-[11px] uppercase tracking-wider mb-4">Records by Tool</p>
           <ResponsiveContainer width="100%" height={180}>
-            <BarChart data={formatData} layout="vertical" barSize={14}>
+            <BarChart data={toolData} layout="vertical" barSize={14}>
               <XAxis type="number" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} axisLine={false} tickLine={false} width={70} />
               <Tooltip
@@ -102,7 +102,7 @@ export function OverviewPage() {
               <SeverityBadge value={rec.severity} />
             </div>
           ))}
-          {!records?.length && (
+          {records !== undefined && records.length === 0 && (
             <p className="px-4 py-6 text-text-muted text-sm text-center">No records yet. Upload a log file to get started.</p>
           )}
         </div>
