@@ -131,14 +131,17 @@ export function ExplorerPage() {
                       <p className="text-text-primary font-mono">{rec.timestamp ?? '—'}</p>
                     </div>
                   </div>
-                  {rec.parameters_json && Object.keys(parseParams(rec.parameters_json)).length > 0 && (
-                    <div>
-                      <p className="text-text-muted mb-1 uppercase tracking-wider">Parameters</p>
-                      <pre className="bg-bg-raised border border-border rounded p-3 text-text-primary font-mono overflow-x-auto">
-                        {JSON.stringify(parseParams(rec.parameters_json), null, 2)}
-                      </pre>
-                    </div>
-                  )}
+                  {(() => {
+                    const params = parseParams(rec.parameters_json)
+                    return Object.keys(params).length > 0 && (
+                      <div>
+                        <p className="text-text-muted mb-1 uppercase tracking-wider">Parameters</p>
+                        <pre className="bg-bg-raised border border-border rounded p-3 text-text-primary font-mono overflow-x-auto">
+                          {JSON.stringify(params, null, 2)}
+                        </pre>
+                      </div>
+                    )
+                  })()}
                   {rec.raw_content && (
                     <div>
                       <p className="text-text-muted mb-1 uppercase tracking-wider">Raw Content</p>
@@ -181,7 +184,7 @@ export function ExplorerPage() {
             Prev
           </Button>
           <span className="text-text-muted text-xs">
-            {offset + 1}–{offset + records.length}
+            {records.length === 0 ? '0 results' : `${offset + 1}–${offset + records.length}`}
           </span>
           <Button
             variant="outline" size="sm"
