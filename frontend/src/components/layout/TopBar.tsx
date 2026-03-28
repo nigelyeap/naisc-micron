@@ -4,17 +4,18 @@ import { api } from '@/lib/api'
 interface TopBarProps { title: string }
 
 export function TopBar({ title }: TopBarProps) {
-  const { data: health } = useQuery({
+  const { data: health, isLoading: healthLoading } = useQuery({
     queryKey: ['health'],
     queryFn: api.health,
     refetchInterval: 30_000,
     retry: false,
   })
 
-  const { data: files } = useQuery({
+  const { data: files, isLoading: filesLoading } = useQuery({
     queryKey: ['files'],
     queryFn: api.listFiles,
     refetchInterval: 10_000,
+    retry: false,
   })
 
   const connected = health?.status === 'ok'
@@ -23,13 +24,15 @@ export function TopBar({ title }: TopBarProps) {
     <header className="h-10 border-b border-border bg-bg-base flex items-center px-4 shrink-0">
       <h1 className="text-text-primary text-sm font-semibold tracking-tight flex-1">{title}</h1>
       <div className="flex items-center gap-4 text-xs text-text-muted">
-        {files !== undefined && (
+        {!filesLoading && files !== undefined && (
           <span>{files.length} file{files.length !== 1 ? 's' : ''} loaded</span>
         )}
-        <div className="flex items-center gap-1.5">
-          <div className={`w-1.5 h-1.5 rounded-full ${connected ? 'bg-accent-green' : 'bg-accent-red'}`} />
-          <span>{connected ? 'API connected' : 'API unavailable'}</span>
-        </div>
+        {!healthLoading && (
+          <div className="flex items-center gap-1.5">
+            <div className={`w-1.5 h-1.5 rounded-full ${connected ? 'bg-accent-green' : 'bg-accent-red'}`} />
+            <span>{connected ? 'API connected' : 'API unavailable'}</span>
+          </div>
+        )}
       </div>
     </header>
   )
