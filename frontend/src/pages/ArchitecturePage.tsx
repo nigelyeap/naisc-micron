@@ -21,6 +21,13 @@ const STAGES = [
     desc: 'Per-format parsers with recursive flattening and LLM fallback',
   },
   {
+    id: 'tokenizer',
+    label: 'Tokenizer',
+    color: '#8b5cf6',
+    sub: ['Field segmentation', 'Value extraction', 'Type inference'],
+    desc: 'Breaks raw parsed content into discrete typed tokens (timestamp, key, value, event)',
+  },
+  {
     id: 'schema',
     label: 'Schema Inferencer',
     color: '#06b6d4',

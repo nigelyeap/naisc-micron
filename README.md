@@ -2,47 +2,160 @@
 
 **Micron @ AISG National AI Student Challenge**
 
-AI-powered semiconductor equipment log parser that ingests diverse log formats, normalizes them into a unified schema, detects anomalies, and provides interactive analytics through a dark-themed dashboard.
+An AI-powered semiconductor equipment log parser that ingests diverse log formats, normalises them into a unified schema, detects anomalies, and provides interactive analytics through a dark-themed React dashboard.
 
 ---
 
 ## Quick Start
 
 ```bash
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Generate sample logs (if not already present)
+# Install frontend dependencies
+cd frontend && npm install && cd ..
+
+# Generate synthetic sample logs (if not already present)
 python sample_logs/gen_all.py
 
-# Run everything (backend + frontend)
+# Run everything (backend + frontend together)
 python run.py
 ```
 
 - **Backend API**: http://localhost:8000
-- **Dashboard**: http://localhost:8501
+- **Dashboard**: http://localhost:5173
 
-You can also start them separately:
+Start them separately if needed:
 
 ```bash
-python run.py --backend   # API only
-python run.py --frontend  # Dashboard only
+python run.py --backend   # FastAPI only
+python run.py --frontend  # Vite dev server only
 ```
 
 ---
 
 ## What It Does
 
-1. **Ingests** semiconductor equipment logs in 7 formats (JSON, XML, CSV, syslog, key-value, plain text, binary)
-2. **Detects format** automatically by inspecting file content, not extensions
-3. **Parses** each format with a specialized parser, handling deeply nested structures (e.g. recursive JSON flattening for vendor sensor traces)
-4. **Infers schema** to map vendor-specific fields to a unified `UnifiedLogRecord` (timestamp, tool_id, module_id, event_type, severity, parameters, confidence)
-5. **Detects anomalies** using Z-score, IQR, rate-of-change, and missing-data methods
-6. **Analyzes trends** with linear regression, moving averages, and drift detection
-7. **Correlates faults** by linking alarm events to preceding sensor anomalies
-8. **Compares tools** across a fleet to identify outlier equipment
-9. **Generates summaries** in plain-English markdown
-10. **Answers questions** in natural language (converts English to SQL via Claude API, with keyword fallback)
+1. **Ingests** semiconductor equipment logs in 7 formats (JSON, XML, CSV, Syslog, Key-Value, plain text, binary)
+2. **Detects format** automatically by inspecting file content — no file extension required
+3. **Parses** each format with a dedicated parser (recursive JSON flattening, XML ElementTree, RFC 3164/5424 syslog, regex KV, hex-dump binary)
+4. **Tokenizes** parsed content — segments raw fields into discrete typed tokens (timestamp, key, value, event type) before schema mapping
+5. **Infers schema** — maps vendor-specific field names to a unified `UnifiedLogRecord` (timestamp, tool_id, module_id, event_type, severity, parameters, confidence)
+6. **Normalises** every record into a consistent structure regardless of source format
+7. **Detects anomalies** using Z-score, IQR, rate-of-change, and missing-data methods
+8. **Analyses trends** with linear regression, moving averages, and drift detection
+9. **Correlates faults** by linking alarm events to preceding sensor anomalies within a time window
+10. **Compares tools** across a fleet to identify outlier equipment
+11. **Generates summaries** in plain-English markdown
+12. **Answers natural language questions** — converts English to SQL via the Claude API, with keyword fallback
+
+---
+
+## Submission Deliverables
+
+### 1. Architecture & Pipeline Flow
+
+The in-app **Architecture** page (sidebar → Architecture icon) provides a detailed interactive pipeline diagram covering every stage:
+
+```
+Raw Log Files → Format Detector → Parser → Tokenizer → Schema Inferencer → Normalizer → SQLite DB → FastAPI → React UI
+```
+
+Full pipeline breakdown:
+
+| Stage | Description |
+|-------|-------------|
+| **Log File Ingestion** | Upload via dashboard or POST to `/api/upload`; multi-format accepted |
+| **Format Detection** | Content-based: byte patterns, regex heuristics, statistical analysis — no extension needed |
+| **Parsing** | 7 dedicated parsers: JSON (recursive), XML, CSV, Syslog, KV, Text, Binary (hex dump) |
+| **Tokenizing** | Segments parsed output into discrete typed tokens: timestamps, event keys, parameter values, severity labels |
+| **Normalizing** | Schema inferencer maps vendor fields → unified schema; normalizer produces `UnifiedLogRecord` |
+| **Storage** | SQLite (WAL mode, thread-safe): `log_files`, `log_records`, `anomalies` tables |
+| **Query & Analysis** | 11 REST endpoints; NL query converts English → SQL; anomaly/trend/fault engines run on stored records |
+
+### 2. Supported Log Formats
+
+| Format | Type | Parser | Sample File |
+|--------|------|--------|-------------|
+| **JSON** | Structured | Recursive nested flattening | `vendor_a_sensor_trace.json`, `vendor_b_sensor_trace.json` |
+| **XML** | Structured | ElementTree extraction | `euv_dose_recipe.xml` |
+| **CSV** | Structured | Header inference + row parsing | `sensor_readings.csv` |
+| **Syslog** | Semi-structured | RFC 3164 / 5424 parsing | `syslog_equipment.log` |
+| **Key-Value** | Semi-structured | Regex `key=value` extraction | `kv_process_log.log` |
+| **Plain Text** | Unstructured | Pattern matching for dates, IDs, events | `event_log.txt` |
+| **Binary** | Unstructured | Hex dump + embedded string extraction | `binary_diagnostic.bin` |
+
+Format detection is **content-based** — the detector inspects byte patterns, structure markers, and statistical properties to classify each file independently of its extension.
+
+### 3. Features, Functionalities & Constraints
+
+#### Features
+- Multi-format log ingestion with automatic format detection
+- Unified schema normalisation across all 7 input formats
+- Real-time anomaly detection (Z-score, IQR, rate-of-change, missing data)
+- Trend analysis (linear regression, moving averages, drift detection)
+- Cross-tool fleet comparison with outlier detection
+- Natural language querying (English → SQL) via Claude API with keyword fallback
+- Plain-English summary report generation
+- Fault correlation linking alarms to preceding anomalies
+
+#### Dashboard Pages
+| Page | Description |
+|------|-------------|
+| **Overview** | KPI cards, severity/event/tool charts, recent events feed, ingested files panel |
+| **Upload** | Drag-and-drop or file-select upload; shows parse results, record count, confidence |
+| **Explorer** | Filterable, paginated table of all parsed records with expandable detail rows |
+| **Analytics** | Timeseries, anomaly, trend, and cross-tool comparison charts |
+| **NL Query** | Natural language query input with SQL preview and dynamic results table |
+| **Summary** | AI-generated markdown report with export to `.md` |
+| **Architecture** | Interactive pipeline diagram + component reference table |
+
+#### Constraints
+- Requires Python 3.12+ and Node.js 18+
+- Claude API key optional — NL query falls back to keyword matching if `ANTHROPIC_API_KEY` is not set
+- Binary parser extracts printable strings and hex patterns only; proprietary vendor binary formats may require vendor tools for full decoding
+- Database is local SQLite; not designed for concurrent multi-user write load
+
+#### a) Development Tools
+
+| Tool | Purpose |
+|------|---------|
+| **Python 3.12** | Backend language |
+| **FastAPI** | REST API framework |
+| **Uvicorn** | ASGI server |
+| **SQLite** | Embedded database (WAL mode, thread-safe) |
+| **React 19 + TypeScript** | Frontend framework |
+| **Vite** | Frontend build tool and dev server |
+| **TailwindCSS** | Utility-first CSS styling |
+| **shadcn/ui** | Accessible UI component library |
+| **Recharts** | Chart and data visualisation library |
+| **TanStack Query v5** | Server state management and request caching |
+| **React Router v7** | Client-side routing |
+| **Lucide React** | SVG icon set |
+| **Axios** | HTTP client for API requests |
+
+#### b) APIs Used
+
+| API | Usage |
+|-----|-------|
+| **Anthropic Claude API** (`claude-3-5-haiku-20241022`) | Natural language → SQL conversion in the NL Query page; LLM fallback parser for unrecognised log formats |
+| **Internal FastAPI REST API** | All communication between the React frontend and the Python backend (11 endpoints at `http://localhost:8000/api/`) |
+
+#### c) Assets Used
+
+| Asset | Source | Usage |
+|-------|--------|-------|
+| **Synthetic log samples** | Generated via `sample_logs/gen_all.py` | 8 demo files covering all 7 supported formats |
+| **Bunny Fonts** — Fira Sans, Fira Code | bunny.net/fonts | Dashboard typography (body + monospace) |
+| **Lucide React icons** | lucide.dev | Sidebar navigation and UI icons |
+
+### 4. Functioning Prototype
+
+Run `python run.py` then open http://localhost:5173. The dashboard demonstrates:
+- Uploading and parsing each of the 8 synthetic log files across all 7 formats
+- Anomaly detection results visible in the Analytics page
+- Natural language query (e.g. `show all critical events from tool ETCH_001`)
+- Auto-generated plain-English summary report with markdown export
 
 ---
 
@@ -50,106 +163,57 @@ python run.py --frontend  # Dashboard only
 
 ```
 NAISC Micron/
-+-- run.py                    # Central launcher (backend + frontend)
-+-- app.py                    # Streamlit dashboard (CSS, hero, sidebar, routing)
-+-- test_app.py               # 123 tests across 14 sections
-+-- requirements.txt
-+-- .streamlit/config.toml    # Dark theme config
-|
-+-- views/                    # Streamlit page modules
-|   +-- upload.py             # Upload & Parse
-|   +-- explorer.py           # Log Explorer
-|   +-- analytics_page.py     # Analytics Dashboard
-|   +-- nl_query.py           # Natural Language Query
-|   +-- summary.py            # Summary Report
-|
-+-- parser/                   # Core parsing engine
-|   +-- format_detector.py    # Content-based format detection
-|   +-- pipeline.py           # Orchestrator: detect -> parse -> normalize
-|   +-- schema_inferencer.py  # Auto-maps vendor fields to unified schema
-|   +-- normalizer.py         # Produces UnifiedLogRecord dicts
-|   +-- llm_fallback.py       # Claude API fallback for unknown formats
-|   +-- parsers/
-|       +-- json_parser.py    # Recursive nested JSON flattening
-|       +-- xml_parser.py
-|       +-- csv_parser.py
-|       +-- syslog_parser.py
-|       +-- kv_parser.py
-|       +-- text_parser.py    # Regex-based unstructured text
-|       +-- binary_parser.py  # Hex dump + pattern extraction
-|
-+-- analytics/                # Analysis engines
-|   +-- anomaly_detector.py   # Z-score, IQR, rate-of-change, missing data
-|   +-- trend_analyzer.py     # Linear regression, moving averages, drift
-|   +-- fault_correlator.py   # Alarm-to-anomaly time-window correlation
-|   +-- cross_tool_comparator.py  # Fleet-wide outlier detection
-|   +-- summary_generator.py  # Markdown report generation
-|
-+-- backend/                  # FastAPI + SQLite
-|   +-- app.py                # 11 API endpoints
-|   +-- database.py           # Thread-safe SQLite (3 tables)
-|   +-- nl_query.py           # English -> SQL conversion
-|   +-- run.py                # Standalone backend launcher
-|
-+-- frontend/                 # API client
-|   +-- api_client.py         # HTTP wrapper for all backend calls
-|
-+-- sample_logs/              # Synthetic demo data (8 files)
-|   +-- gen_all.py            # Generator script
-|   +-- vendor_a_sensor_trace.json
-|   +-- vendor_b_sensor_trace.json
-|   +-- euv_dose_recipe.xml
-|   +-- sensor_readings.csv
-|   +-- syslog_equipment.log
-|   +-- kv_process_log.log
-|   +-- event_log.txt
-|   +-- binary_diagnostic.bin
-|
-+-- data/
-    +-- logs.db               # SQLite database (auto-created)
-```
-
----
-
-## Architecture
-
-```
-  Log Files (7 formats)
-        |
-        v
-  +-- Format Detector --+
-  |   (content-based)   |
-  +---------------------+
-        |
-        v
-  +-- Parser Engine ----+      +-- Schema Inferencer --+
-  |  json/xml/csv/...   | ---> |  auto-maps fields to  |
-  +---------------------+      |  unified schema       |
-        |                      +-----------------------+
-        v
-  +-- Normalizer -------+
-  |  UnifiedLogRecord   |
-  +---------------------+
-        |
-        +------+------+------+------+
-        |      |      |      |      |
-        v      v      v      v      v
-     Anomaly  Trend  Fault  Cross  Summary
-     Detect   Anal.  Corr.  Tool   Gen.
-        |      |      |      |      |
-        +------+------+------+------+
-        |
-        v
-  +-- SQLite Database ---+
-  |  log_files           |
-  |  log_records         |
-  |  anomalies           |
-  +---------------------+
-        |
-        v
-  +-- FastAPI Backend ---+      +-- Streamlit Frontend --+
-  |  REST API (11 eps)   | <--> |  5-page dashboard      |
-  +---------------------+      +------------------------+
+├── run.py                    # Central launcher (backend + frontend)
+├── test_app.py               # End-to-end test suite (123 tests)
+├── requirements.txt
+│
+├── parser/                   # Core parsing engine
+│   ├── format_detector.py    # Content-based format detection
+│   ├── pipeline.py           # Orchestrator: detect → parse → tokenize → normalize
+│   ├── schema_inferencer.py  # Maps vendor fields to unified schema
+│   ├── normalizer.py         # Produces UnifiedLogRecord dicts
+│   ├── llm_fallback.py       # Claude API fallback for unknown formats
+│   └── parsers/
+│       ├── json_parser.py    # Recursive nested JSON flattening
+│       ├── xml_parser.py     # ElementTree-based extraction
+│       ├── csv_parser.py     # Standard CSV with header inference
+│       ├── syslog_parser.py  # RFC 3164/5424 parsing
+│       ├── kv_parser.py      # Key=value regex extraction
+│       ├── text_parser.py    # Regex-based unstructured text
+│       └── binary_parser.py  # Hex dump + embedded string extraction
+│
+├── analytics/                # Analysis engines
+│   ├── anomaly_detector.py   # Z-score, IQR, rate-of-change, missing data
+│   ├── trend_analyzer.py     # Linear regression, moving averages, drift
+│   ├── fault_correlator.py   # Alarm-to-anomaly time-window correlation
+│   ├── cross_tool_comparator.py  # Fleet-wide outlier detection
+│   └── summary_generator.py  # Markdown report generation
+│
+├── backend/                  # FastAPI + SQLite
+│   ├── app.py                # 11 REST API endpoints
+│   ├── database.py           # Thread-safe SQLite (3 tables, WAL mode)
+│   └── nl_query.py           # English → SQL conversion
+│
+├── frontend/                 # React + Vite dashboard
+│   ├── src/
+│   │   ├── pages/            # Overview, Upload, Explorer, Analytics, NLQuery, Summary, Architecture
+│   │   ├── components/       # Sidebar, TopBar, KpiCard, SeverityBadge, FormatBadge, shadcn/ui
+│   │   └── lib/              # API client (axios), utils
+│   └── package.json
+│
+├── sample_logs/              # Synthetic demo data (8 files, all formats)
+│   ├── gen_all.py            # Generator script
+│   ├── vendor_a_sensor_trace.json
+│   ├── vendor_b_sensor_trace.json
+│   ├── euv_dose_recipe.xml
+│   ├── sensor_readings.csv
+│   ├── syslog_equipment.log
+│   ├── kv_process_log.log
+│   ├── event_log.txt
+│   └── binary_diagnostic.bin
+│
+└── data/
+    └── logs.db               # SQLite database (auto-created on first run)
 ```
 
 ---
@@ -161,42 +225,14 @@ NAISC Micron/
 | `GET` | `/api/health` | Health check |
 | `POST` | `/api/upload` | Upload and parse a log file |
 | `GET` | `/api/files` | List all uploaded files |
-| `GET` | `/api/records` | Query records (filters: tool_id, event_type, severity, file_id) |
+| `GET` | `/api/records` | Query records (filters: tool_id, event_type, severity, source_format, file_id) |
 | `GET` | `/api/records/{id}` | Get single record |
 | `GET` | `/api/anomalies` | Query detected anomalies |
 | `GET` | `/api/analytics/summary` | Overall statistics |
 | `GET` | `/api/analytics/timeseries` | Parameter timeseries data |
 | `GET` | `/api/analytics/trends` | Trend analysis for a parameter |
 | `GET` | `/api/analytics/cross-tool` | Cross-tool comparison |
-| `POST` | `/api/query` | Natural language query (English -> SQL) |
-
----
-
-## Supported Log Formats
-
-| Format | Example | Parser Approach |
-|--------|---------|-----------------|
-| **JSON** | Vendor sensor traces with deeply nested structures | Recursive flattening of nested arrays |
-| **XML** | EUV dose recipes | Element/attribute extraction |
-| **CSV** | Timestamped sensor readings | Standard CSV with header inference |
-| **Syslog** | RFC 3164/5424 equipment logs | Priority + message parsing |
-| **Key-Value** | Process parameter logs (`key=value` pairs) | Regex KV extraction |
-| **Text** | Free-form event logs with timestamps | Pattern matching for dates, IDs, events |
-| **Binary** | Diagnostic memory dumps | Hex dump + embedded string extraction |
-
-Format detection is **content-based** -- file extensions are ignored. The detector inspects byte patterns, structure markers, and statistical properties to classify each file.
-
----
-
-## Analytics Engines
-
-| Engine | Method | What It Detects |
-|--------|--------|-----------------|
-| **Anomaly Detector** | Z-score, IQR, rate-of-change, missing data | Sensor readings outside normal range |
-| **Trend Analyzer** | Linear regression, moving averages | Increasing/decreasing/stable trends, drift |
-| **Fault Correlator** | Time-window analysis, co-occurrence matrix | Links between alarms and preceding anomalies |
-| **Cross-Tool Comparator** | Fleet baseline, Z-score outlier detection | Equipment running outside fleet norms |
-| **Summary Generator** | Template-based markdown | Human-readable analysis reports |
+| `POST` | `/api/query` | Natural language query (English → SQL) |
 
 ---
 
@@ -204,14 +240,14 @@ Format detection is **content-based** -- file extensions are ignored. The detect
 
 **3 tables in SQLite (WAL mode, thread-safe):**
 
-**`log_files`** -- Uploaded file metadata
-- id, filename, format_detected, upload_time, total_records, avg_confidence, parse_time_ms
+**`log_files`** — Uploaded file metadata
+- `id`, `filename`, `format_detected`, `upload_time`, `total_records`, `avg_confidence`, `parse_time_ms`
 
-**`log_records`** -- Parsed and normalized records
-- id, file_id (FK), source_format, timestamp, tool_id, module_id, event_type, severity, parameters_json, raw_content, confidence, parse_warnings_json
+**`log_records`** — Parsed and normalised records
+- `id`, `file_id` (FK), `source_format`, `timestamp`, `tool_id`, `module_id`, `event_type`, `severity`, `parameters_json`, `raw_content`, `confidence`, `parse_warnings_json`
 
-**`anomalies`** -- Detected anomalies
-- id, record_id (TEXT), parameter, value, expected_min, expected_max, anomaly_type, severity, z_score, description, detected_at
+**`anomalies`** — Detected anomalies
+- `id`, `record_id`, `parameter`, `value`, `expected_min`, `expected_max`, `anomaly_type`, `severity`, `z_score`, `description`, `detected_at`
 
 ---
 
@@ -221,35 +257,18 @@ Format detection is **content-based** -- file extensions are ignored. The detect
 python test_app.py
 ```
 
-**123 tests across 14 sections:**
-
-1. Format Detection (10 tests)
-2. Individual Parsers (15 tests)
-3. Schema Inference (4 tests)
-4. Full Pipeline -- end-to-end (32 tests)
-5. Anomaly Detection (7 tests)
-6. Trend Analyzer (5 tests)
-7. Cross-Tool Comparator (3 tests)
-8. Fault Correlator (1 test)
-9. Summary Generator (3 tests)
-10. Database Operations (13 tests)
-11. Natural Language Query (4 tests)
-12. FastAPI Endpoints (13 tests, requires backend)
-13. Frontend API Client (2 tests)
-14. Edge Cases (8 tests)
+123 tests across 14 sections covering format detection, all parsers, schema inference, full pipeline, anomaly detection, trend analysis, cross-tool comparison, fault correlation, summary generation, database operations, NL query, API endpoints, and edge cases.
 
 ---
 
 ## Requirements
 
 - Python 3.12+
-- FastAPI + Uvicorn (backend)
-- Streamlit 1.30+ (frontend)
-- Plotly (charts)
-- Anthropic SDK (optional, for Claude-powered NL queries -- falls back to keyword matching)
+- Node.js 18+
+- Anthropic API key (optional — set as `ANTHROPIC_API_KEY` env var; NL query falls back to keyword matching without it)
 
 ---
 
 ## License
 
-Hackathon project -- Micron @ AISG National AI Student Challenge 2025.
+Hackathon project — Micron @ AISG National AI Student Challenge 2025.
