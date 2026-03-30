@@ -25,7 +25,7 @@ export function KpiCard({ label, value, accent, sub }: KpiCardProps) {
       <p className="text-text-muted text-[11px] font-semibold uppercase tracking-widest mb-2">
         {label}
       </p>
-      <p className={`text-3xl font-bold tabular-nums ${accentText[accent]}`}>
+      <p className={`text-4xl font-bold tabular-nums leading-none ${accentText[accent]}`}>
         {value}
       </p>
       {sub && (

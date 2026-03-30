@@ -30,7 +30,7 @@ export function Sidebar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                  `w-full h-11 px-2 rounded-lg flex items-center justify-center transition-all duration-200 ${
                     isActive
                       ? 'bg-accent-blue/20 text-accent-blue ring-1 ring-accent-blue/30 shadow-[0_0_14px_rgba(59,130,246,0.3)]'
                       : 'text-text-muted hover:text-text-primary hover:bg-bg-raised transition-all duration-200'
