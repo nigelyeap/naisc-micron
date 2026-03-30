@@ -112,9 +112,46 @@ def _looks_like_timestamp(value: Any) -> bool:
 class SchemaInferencer:
     """Infer a unified schema mapping from a list of parsed records."""
 
-    def infer(self, records: list[dict]) -> SchemaMapping:
+    def infer(
+        self,
+        records: list[dict],
+        token_hints: list | None = None,
+    ) -> SchemaMapping:
+        """
+        Infer a unified schema mapping from parsed records.
+
+        Args:
+            records:      Raw parsed records (list of dicts).
+            token_hints:  Optional output from Tokenizer.tokenize(records).
+                          When a token type agrees with the name-based mapping,
+                          the confidence score is boosted by +0.05 (capped at 1.0).
+        """
         if not records:
             return SchemaMapping({}, [], [], {})
+
+        # Build field -> most-common TokenType lookup from token hints
+        hint_map: dict[str, object] = {}
+        token_to_unified: dict[object, str | None] = {}
+        if token_hints:
+            from collections import Counter
+            from parser.tokenizer import TokenType
+            field_types: dict[str, Counter] = {}
+            for seq in token_hints:
+                for tok in seq:
+                    field_types.setdefault(tok.field_name, Counter())[tok.token_type] += 1
+            for fname, counter in field_types.items():
+                hint_map[fname] = counter.most_common(1)[0][0]
+            token_to_unified = {
+                TokenType.TIMESTAMP:       "timestamp",
+                TokenType.TOOL_ID:         "tool_id",
+                TokenType.MODULE_ID:       "module_id",
+                TokenType.EVENT_TYPE:      "event_type",
+                TokenType.SEVERITY:        "severity",
+                TokenType.PARAMETER_KEY:   None,
+                TokenType.PARAMETER_VALUE: None,
+                TokenType.RAW_CONTENT:     None,
+                TokenType.UNKNOWN:         None,
+            }
 
         # Flatten all records and collect unique field names
         flat_records = [_flatten(r) for r in records]
@@ -130,6 +167,12 @@ class SchemaInferencer:
             norm = _normalise_key(src_field.split(".")[-1])  # use leaf name
             mapped, conf = self._map_field(norm, src_field, flat_records)
             if mapped:
+                # Boost confidence when token hint agrees with name-based mapping
+                if hint_map:
+                    hint_type = hint_map.get(src_field)
+                    expected = token_to_unified.get(hint_type)
+                    if expected and expected == mapped:
+                        conf = min(1.0, conf + 0.05)
                 mappings[src_field] = mapped
                 confidences[src_field] = conf
 

@@ -9,6 +9,7 @@ from parser.format_detector import FormatDetector, FormatDetection
 from parser.schema_inferencer import SchemaInferencer, SchemaMapping
 from parser.normalizer import Normalizer, UnifiedLogRecord
 from parser.pipeline import LogParserPipeline, ParseResult
+from parser.tokenizer import Token, Tokenizer, TokenType
 
 __all__ = [
     "FormatDetector",
@@ -19,4 +20,7 @@ __all__ = [
     "UnifiedLogRecord",
     "LogParserPipeline",
     "ParseResult",
+    "Token",
+    "Tokenizer",
+    "TokenType",
 ]
