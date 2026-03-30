@@ -20,8 +20,8 @@ class TokenType(Enum):
     MODULE_ID       = auto()
     EVENT_TYPE      = auto()
     SEVERITY        = auto()
-    PARAMETER_KEY   = auto()   # a numeric / measurement field
-    PARAMETER_VALUE = auto()   # non-classified value
+    PARAMETER_KEY   = auto()   # field name identifies a sensor / measurement parameter
+    PARAMETER_VALUE = auto()   # field value is numeric but name is unrecognized
     RAW_CONTENT     = auto()   # _raw internal field
     UNKNOWN         = auto()
 
