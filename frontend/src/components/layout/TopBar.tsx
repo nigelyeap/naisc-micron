@@ -21,8 +21,8 @@ export function TopBar({ title }: TopBarProps) {
   const connected = health?.status === 'ok'
 
   return (
-    <header className="h-12 border-b border-border bg-bg-base flex items-center px-5 shrink-0">
-      <h1 className="text-text-primary text-base font-semibold tracking-tight flex-1">{title}</h1>
+    <header className="h-16 border-b border-border bg-bg-base flex items-center px-5 shrink-0">
+      <h1 className="text-text-primary text-3xl font-bold tracking-tight flex-1">{title}</h1>
       <div className="flex items-center gap-4 text-xs text-text-muted">
         {!filesLoading && files !== undefined && (
           <span>{files.length} file{files.length !== 1 ? 's' : ''} loaded</span>

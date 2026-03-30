@@ -87,13 +87,13 @@ export function OverviewPage() {
       <div className="grid grid-cols-3 gap-3">
         {/* Severity distribution */}
         <div className="bg-bg-panel border border-border p-4">
-          <p className="text-text-muted text-[11px] uppercase tracking-wider mb-3">Severity Distribution</p>
+          <p className="text-text-muted text-sm uppercase tracking-wider mb-3">Severity Distribution</p>
           {summaryLoading ? <ChartSkeleton height={200} /> : (
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={severityData} barSize={22}>
-                <XAxis dataKey="name" tick={{ fill: '#64748b', fontSize: 10 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: '#64748b', fontSize: 10 }} axisLine={false} tickLine={false} width={28} />
-                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 11, borderRadius: '4px' }} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
+                <XAxis dataKey="name" tick={{ fill: '#64748b', fontSize: 13 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: '#64748b', fontSize: 13 }} axisLine={false} tickLine={false} width={28} />
+                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 13, borderRadius: '4px' }} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
                 <Bar dataKey="value" radius={[3, 3, 0, 0]}>
                   {severityData.map((entry) => {
                     const key = entry.name.toUpperCase()
@@ -108,15 +108,15 @@ export function OverviewPage() {
 
         {/* Event types donut */}
         <div className="bg-bg-panel border border-border p-4">
-          <p className="text-text-muted text-[11px] uppercase tracking-wider mb-3">Event Types</p>
+          <p className="text-text-muted text-sm uppercase tracking-wider mb-3">Event Types</p>
           {summaryLoading ? <ChartSkeleton height={200} /> : eventData.length > 0 ? (
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie data={eventData} dataKey="value" nameKey="name" cx="50%" cy="45%" outerRadius={68} innerRadius={36}>
                   {eventData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
-                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 11, borderRadius: '4px' }} />
-                <Legend wrapperStyle={{ fontSize: 10, color: '#64748b' }} iconSize={8} />
+                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 13, borderRadius: '4px' }} />
+                <Legend wrapperStyle={{ fontSize: 13, color: '#64748b' }} iconSize={8} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
@@ -128,13 +128,13 @@ export function OverviewPage() {
 
         {/* Records by tool */}
         <div className="bg-bg-panel border border-border p-4">
-          <p className="text-text-muted text-[11px] uppercase tracking-wider mb-3">Records by Tool</p>
+          <p className="text-text-muted text-sm uppercase tracking-wider mb-3">Records by Tool</p>
           {summaryLoading ? <ChartSkeleton height={200} /> : (
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={toolData} layout="vertical" barSize={12}>
-                <XAxis type="number" tick={{ fill: '#64748b', fontSize: 10 }} axisLine={false} tickLine={false} />
-                <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 10 }} axisLine={false} tickLine={false} width={64} />
-                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 11, borderRadius: '4px' }} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
+                <XAxis type="number" tick={{ fill: '#64748b', fontSize: 13 }} axisLine={false} tickLine={false} />
+                <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 13 }} axisLine={false} tickLine={false} width={64} />
+                <Tooltip contentStyle={{ background: '#1e2028', border: '1px solid #2a2f3a', color: '#e2e8f0', fontSize: 13, borderRadius: '4px' }} cursor={{ fill: 'rgba(255,255,255,0.03)' }} />
                 <Bar dataKey="value" fill="#3b82f6" radius={[0, 3, 3, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -147,17 +147,17 @@ export function OverviewPage() {
         {/* Recent events — spans 2 cols */}
         <div className="col-span-2 bg-bg-panel border border-border">
           <div className="px-4 py-2.5 border-b border-border bg-bg-raised flex items-center justify-between">
-            <p className="text-text-muted text-[11px] uppercase tracking-wider">Recent Events</p>
-            <span className="text-text-muted text-[11px]">{records ? `${records.length} shown` : ''}</span>
+            <p className="text-text-muted text-sm uppercase tracking-wider">Recent Events</p>
+            <span className="text-text-muted text-xs">{records ? `${records.length} shown` : ''}</span>
           </div>
           <div className="divide-y divide-border">
             {(records ?? []).map(rec => (
-              <div key={rec.id} className="flex items-center gap-3 px-4 py-2 text-sm hover:bg-bg-raised transition-colors">
-                <span className="text-text-muted text-[11px] w-32 shrink-0 font-mono tabular-nums">
+              <div key={rec.id} className="flex items-center gap-3 px-4 py-2.5 hover:bg-bg-raised transition-colors">
+                <span className="text-text-muted text-xs w-36 shrink-0 font-mono tabular-nums">
                   {formatTimestamp(rec.timestamp)}
                 </span>
-                <span className="text-text-muted w-20 shrink-0 truncate text-[11px]">{rec.tool_id ?? '—'}</span>
-                <span className="text-text-primary flex-1 truncate text-[13px]">{rec.event_type ?? rec.raw_content?.slice(0, 50) ?? '—'}</span>
+                <span className="text-text-muted w-24 shrink-0 truncate text-xs">{rec.tool_id ?? '—'}</span>
+                <span className="text-text-primary flex-1 truncate text-[15px]">{rec.event_type ?? rec.raw_content?.slice(0, 50) ?? '—'}</span>
                 <FormatBadge value={rec.source_format} />
                 <SeverityBadge value={rec.severity} />
               </div>
@@ -174,16 +174,16 @@ export function OverviewPage() {
         {/* Ingested files panel */}
         <div className="bg-bg-panel border border-border">
           <div className="px-4 py-2.5 border-b border-border bg-bg-raised">
-            <p className="text-text-muted text-[11px] uppercase tracking-wider">Ingested Files</p>
+            <p className="text-text-muted text-sm uppercase tracking-wider">Ingested Files</p>
           </div>
           <div className="divide-y divide-border">
             {recentFiles.length > 0 ? recentFiles.map(f => (
               <div key={f.id} className="px-4 py-2.5 hover:bg-bg-raised transition-colors">
                 <div className="flex items-center justify-between gap-2 mb-1">
-                  <span className="text-text-primary text-xs font-medium truncate flex-1">{f.filename}</span>
+                  <span className="text-text-primary text-sm font-medium truncate flex-1">{f.filename}</span>
                   <FormatBadge value={f.format_detected} />
                 </div>
-                <div className="flex items-center gap-3 text-[11px] text-text-muted">
+                <div className="flex items-center gap-3 text-xs text-text-muted">
                   <span>{f.total_records.toLocaleString()} records</span>
                   <span className="text-border">·</span>
                   <span>{formatConfidence(f.avg_confidence)}</span>

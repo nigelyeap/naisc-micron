@@ -22,7 +22,7 @@ export function SeverityBadge({ value }: SeverityBadgeProps) {
   const norm = normalise(value)
   const cls = styles[norm] ?? 'bg-gray-500/10 text-text-muted'
   return (
-    <span className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold tracking-wide ${cls}`}>
+    <span className={`inline-flex items-center px-2 py-0.5 rounded text-[13px] font-semibold tracking-wide ${cls}`}>
       {norm}
     </span>
   )

@@ -89,7 +89,7 @@ export function ExplorerPage() {
       {/* Table */}
       <div className="bg-bg-panel border border-border overflow-hidden">
         {/* Header */}
-        <div className="grid grid-cols-[24px_1fr_120px_100px_80px_80px_70px] items-center px-3 py-2 bg-bg-raised border-b border-border text-[11px] text-text-muted uppercase tracking-wider font-medium">
+        <div className="grid grid-cols-[24px_1fr_120px_100px_80px_80px_70px] items-center px-3 py-2 bg-bg-raised border-b border-border text-sm text-text-muted uppercase tracking-wider font-medium">
           <span />
           <span>Event</span>
           <span>Timestamp</span>
