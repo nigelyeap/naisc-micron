@@ -42,7 +42,7 @@ Do NOT include any markdown, explanation, or wrapping -- only raw JSON.
 def parse_with_llm(
     content: str,
     api_key: str = "",
-    model: str = "claude-sonnet-4-20250514",
+    model: str = "claude-sonnet-4-6",
     source_file: str = "",
     max_sample_chars: int = 4000,
 ) -> list[UnifiedLogRecord]:

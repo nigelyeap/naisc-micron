@@ -36,7 +36,7 @@ python run.py --frontend  # Vite dev server only
 
 ## What It Does
 
-1. **Ingests** semiconductor equipment logs in 7 formats (JSON, XML, CSV, Syslog, Key-Value, plain text, binary)
+1. **Ingests** semiconductor equipment logs in 8 formats (JSON, XML, CSV, Syslog, Key-Value, plain text, binary, Parquet)
 2. **Detects format** automatically by inspecting file content — no file extension required
 3. **Parses** each format with a dedicated parser (recursive JSON flattening, XML ElementTree, RFC 3164/5424 syslog, regex KV, hex-dump binary)
 4. **Tokenizes** parsed content — segments raw fields into discrete typed tokens (timestamp, key, value, event type) before schema mapping
@@ -67,11 +67,11 @@ Full pipeline breakdown:
 |-------|-------------|
 | **Log File Ingestion** | Upload via dashboard or POST to `/api/upload`; multi-format accepted |
 | **Format Detection** | Content-based: byte patterns, regex heuristics, statistical analysis — no extension needed |
-| **Parsing** | 7 dedicated parsers: JSON (recursive), XML, CSV, Syslog, KV, Text, Binary (hex dump) |
+| **Parsing** | 8 dedicated parsers: JSON (recursive), XML, CSV, Syslog, KV, Text, Binary (hex dump), Parquet |
 | **Tokenizing** | Segments parsed output into discrete typed tokens: timestamps, event keys, parameter values, severity labels |
 | **Normalizing** | Schema inferencer maps vendor fields → unified schema; normalizer produces `UnifiedLogRecord` |
 | **Storage** | SQLite (WAL mode, thread-safe): `log_files`, `log_records`, `anomalies` tables |
-| **Query & Analysis** | 11 REST endpoints; NL query converts English → SQL; anomaly/trend/fault engines run on stored records |
+| **Query & Analysis** | 13 REST endpoints; NL query converts English → SQL; anomaly/trend/fault engines run on stored records |
 
 ### 2. Supported Log Formats
 
@@ -84,6 +84,7 @@ Full pipeline breakdown:
 | **Key-Value** | Semi-structured | Regex `key=value` extraction | `kv_process_log.log` |
 | **Plain Text** | Unstructured | Pattern matching for dates, IDs, events | `event_log.txt` |
 | **Binary** | Unstructured | Hex dump + embedded string extraction | `binary_diagnostic.bin` |
+| **Parquet** | Structured (binary) | Apache Arrow columnar read via pyarrow | `vendor_c_sensor_trace.parquet` |
 
 Format detection is **content-based** — the detector inspects byte patterns, structure markers, and statistical properties to classify each file independently of its extension.
 
@@ -91,7 +92,7 @@ Format detection is **content-based** — the detector inspects byte patterns, s
 
 #### Features
 - Multi-format log ingestion with automatic format detection
-- Unified schema normalisation across all 7 input formats
+- Unified schema normalisation across all 8 input formats
 - Real-time anomaly detection (Z-score, IQR, rate-of-change, missing data)
 - Trend analysis (linear regression, moving averages, drift detection)
 - Cross-tool fleet comparison with outlier detection
@@ -138,21 +139,21 @@ Format detection is **content-based** — the detector inspects byte patterns, s
 
 | API | Usage |
 |-----|-------|
-| **Anthropic Claude API** (`claude-3-5-haiku-20241022`) | Natural language → SQL conversion in the NL Query page; LLM fallback parser for unrecognised log formats |
-| **Internal FastAPI REST API** | All communication between the React frontend and the Python backend (11 endpoints at `http://localhost:8000/api/`) |
+| **Anthropic Claude API** (`claude-sonnet-4-6`) | Natural language → SQL conversion in the NL Query page; LLM fallback parser for unrecognised log formats |
+| **Internal FastAPI REST API** | All communication between the React frontend and the Python backend (13 endpoints at `http://localhost:8000/api/`) |
 
 #### c) Assets Used
 
 | Asset | Source | Usage |
 |-------|--------|-------|
-| **Synthetic log samples** | Generated via `sample_logs/gen_all.py` | 8 demo files covering all 7 supported formats |
+| **Synthetic log samples** | Generated via `sample_logs/gen_all.py` | 9 demo files covering all 8 supported formats |
 | **Bunny Fonts** — Fira Sans, Fira Code | bunny.net/fonts | Dashboard typography (body + monospace) |
 | **Lucide React icons** | lucide.dev | Sidebar navigation and UI icons |
 
 ### 4. Functioning Prototype
 
 Run `python run.py` then open http://localhost:5173. The dashboard demonstrates:
-- Uploading and parsing each of the 8 synthetic log files across all 7 formats
+- Uploading and parsing each of the 9 synthetic log files across all 8 formats
 - Anomaly detection results visible in the Analytics page
 - Natural language query (e.g. `show all critical events from tool ETCH_001`)
 - Auto-generated plain-English summary report with markdown export
@@ -190,7 +191,7 @@ NAISC Micron/
 │   └── summary_generator.py  # Markdown report generation
 │
 ├── backend/                  # FastAPI + SQLite
-│   ├── app.py                # 11 REST API endpoints
+│   ├── app.py                # 13 REST API endpoints
 │   ├── database.py           # Thread-safe SQLite (3 tables, WAL mode)
 │   └── nl_query.py           # English → SQL conversion
 │
@@ -201,7 +202,7 @@ NAISC Micron/
 │   │   └── lib/              # API client (axios), utils
 │   └── package.json
 │
-├── sample_logs/              # Synthetic demo data (8 files, all formats)
+├── sample_logs/              # Synthetic demo data (9 files, all 8 formats)
 │   ├── gen_all.py            # Generator script
 │   ├── vendor_a_sensor_trace.json
 │   ├── vendor_b_sensor_trace.json
@@ -210,7 +211,8 @@ NAISC Micron/
 │   ├── syslog_equipment.log
 │   ├── kv_process_log.log
 │   ├── event_log.txt
-│   └── binary_diagnostic.bin
+│   ├── binary_diagnostic.bin
+│   └── vendor_c_sensor_trace.parquet
 │
 └── data/
     └── logs.db               # SQLite database (auto-created on first run)
@@ -225,6 +227,8 @@ NAISC Micron/
 | `GET` | `/api/health` | Health check |
 | `POST` | `/api/upload` | Upload and parse a log file |
 | `GET` | `/api/files` | List all uploaded files |
+| `GET` | `/api/samples` | List available sample log files |
+| `POST` | `/api/samples/upload/{filename}` | Parse a built-in sample log |
 | `GET` | `/api/records` | Query records (filters: tool_id, event_type, severity, source_format, file_id) |
 | `GET` | `/api/records/{id}` | Get single record |
 | `GET` | `/api/anomalies` | Query detected anomalies |

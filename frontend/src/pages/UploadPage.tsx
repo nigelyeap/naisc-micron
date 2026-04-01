@@ -77,7 +77,7 @@ export function UploadPage() {
       >
         <Upload className="w-8 h-8 text-text-muted mb-3" />
         <p className="text-text-primary font-medium">Drop log files here or click to browse</p>
-        <p className="text-text-muted text-sm mt-1">JSON, XML, CSV, Syslog, Key-Value, Text, Binary</p>
+        <p className="text-text-muted text-sm mt-1">JSON, XML, CSV, Syslog, Key-Value, Text, Binary, Parquet</p>
         <input
           ref={inputRef}
           type="file"

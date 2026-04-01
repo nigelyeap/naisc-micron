@@ -15,7 +15,7 @@ from dataclasses import dataclass
 @dataclass
 class FormatDetection:
     """Result of format detection."""
-    format_type: str        # json, xml, csv, syslog, kv, text, binary
+    format_type: str        # json, xml, csv, syslog, kv, text, binary, parquet
     confidence: float       # 0.0 - 1.0
     encoding: str           # detected or assumed encoding
     sample_preview: str     # first ~200 chars of content for quick inspection
@@ -50,8 +50,10 @@ class FormatDetector:
     """Detect log format from raw content."""
 
     # Ordered list of detection methods -- first high-confidence match wins.
+    # Parquet must come before binary (Parquet files are binary).
     # KV must come before CSV because csv.Sniffer is overly eager.
     _DETECTORS: list[str] = [
+        "_check_parquet",
         "_check_binary",
         "_check_json",
         "_check_xml",
@@ -102,6 +104,14 @@ class FormatDetector:
     # ------------------------------------------------------------------
     # Individual detectors (return None when they don't match)
     # ------------------------------------------------------------------
+
+    def _check_parquet(
+        self, text: str, raw: bytes, enc: str, preview: str
+    ) -> FormatDetection | None:
+        """Detect Apache Parquet files by their 4-byte magic number PAR1."""
+        if raw[:4] == b"PAR1":
+            return FormatDetection("parquet", 0.99, enc, preview)
+        return None
 
     def _check_binary(
         self, text: str, raw: bytes, enc: str, preview: str

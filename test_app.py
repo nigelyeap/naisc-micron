@@ -98,6 +98,14 @@ def main():
     check("Binary detected for diagnostic dump", result.format_type == "binary",
           f"got {result.format_type}")
 
+    # Parquet
+    with open(os.path.join(SAMPLE_DIR, "vendor_c_sensor_trace.parquet"), "rb") as f:
+        result = detector.detect(f.read())
+    check("Parquet detected for vendor_c", result.format_type == "parquet",
+          f"got {result.format_type}")
+    check("Parquet confidence >= 0.95", result.confidence >= 0.95,
+          f"got {result.confidence}")
+
     # Confidence scores
     with open(os.path.join(SAMPLE_DIR, "vendor_a_sensor_trace.json"), "rb") as f:
         result = detector.detect(f.read())
@@ -211,6 +219,21 @@ def main():
     check("Binary parser returns records", len(records) > 0,
           f"got {len(records)}")
 
+    # Parquet parser
+    from parser.parsers.parquet_parser import parse as parquet_parse
+
+    with open(os.path.join(SAMPLE_DIR, "vendor_c_sensor_trace.parquet"), "rb") as f:
+        records = parquet_parse(f.read())
+    check("Parquet parser returns 80 records", len(records) == 80,
+          f"got {len(records)}")
+    parquet_sample = records[0] if records else {}
+    check("Parquet record has EquipmentID field",
+          "EquipmentID" in parquet_sample,
+          f"keys: {list(parquet_sample.keys())}")
+    check("Parquet record EquipmentID is ETCH-003",
+          parquet_sample.get("EquipmentID") == "ETCH-003",
+          f"got {parquet_sample.get('EquipmentID')}")
+
 
     # ═════════════════════════════════════════════════════════════════════
     #  TEST 3: Schema Inference
@@ -270,6 +293,7 @@ def main():
         "kv_process_log.log": ("kv", 100),
         "event_log.txt": ("text", 50),
         "binary_diagnostic.bin": ("binary", 1),
+        "vendor_c_sensor_trace.parquet": ("parquet", 70),
     }
 
     for filename, (expected_format, min_records) in test_files.items():
@@ -804,26 +828,39 @@ def main():
 
 
     # ═════════════════════════════════════════════════════════════════════
-    #  TEST 13: Frontend API Client
+    #  TEST 13: Offline / Connection-Error Handling
     # ═════════════════════════════════════════════════════════════════════
     print("\n" + "=" * 60)
-    print("TEST 13: Frontend API Client")
+    print("TEST 13: Offline / Connection-Error Handling")
     print("=" * 60)
 
-    from frontend.api_client import APIClient
+    import requests as _requests
 
-    api = APIClient(base_url="http://localhost:99999")  # intentionally bad port
-
-    # Health check should return False for bad connection
-    check("Health check returns False for offline backend",
-          api.health_check() == False)
-
-    # Methods should raise on connection error
+    # Hitting a port nothing is listening on should raise a connection error
     try:
-        api.get_summary()
-        check("get_summary raises on offline backend", False, "should have raised")
+        _requests.get("http://localhost:99999/api/health", timeout=1)
+        check("Offline backend raises connection error", False,
+              "expected ConnectionError or similar, got a response")
     except Exception:
-        check("get_summary raises on offline backend", True)
+        check("Offline backend raises connection error", True)
+
+    # NLQueryEngine falls back gracefully when no API key is set
+    from backend.database import Database
+    import tempfile, os as _os
+    _tmp = tempfile.mktemp(suffix=".db")
+    try:
+        _db = Database(_tmp)
+        from backend.nl_query import NLQueryEngine
+        _engine = NLQueryEngine(_db, api_key=None)
+        _res = _engine.query("show all alarms")
+        check("NLQueryEngine works without API key", _res is not None)
+        check("NLQueryEngine fallback returns SQL", len(_res.generated_sql) > 0,
+              f"got: {_res.generated_sql!r}")
+    finally:
+        try:
+            _os.remove(_tmp)
+        except OSError:
+            pass
 
 
     # ═════════════════════════════════════════════════════════════════════

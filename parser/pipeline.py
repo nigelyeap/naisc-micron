@@ -15,19 +15,21 @@ from parser.llm_fallback import parse_with_llm
 from parser.normalizer import Normalizer, UnifiedLogRecord
 from parser.parsers import PARSER_MAP
 from parser.schema_inferencer import SchemaInferencer, SchemaMapping
+from parser.tokenizer import Tokenizer
 
 logger = logging.getLogger(__name__)
 
 
 @dataclass
 class ParseResult:
-    records: list[UnifiedLogRecord]
-    format_detected: str
-    schema_mapping: SchemaMapping
-    parse_time_ms: float
-    total_records: int
-    failed_records: int
-    avg_confidence: float
+    records:          list[UnifiedLogRecord]
+    format_detected:  str
+    schema_mapping:   SchemaMapping
+    parse_time_ms:    float
+    total_records:    int
+    failed_records:   int
+    avg_confidence:   float
+    token_sequences:  list  # list[list[Token]] — parallel to records
 
 
 class LogParserPipeline:
@@ -38,6 +40,7 @@ class LogParserPipeline:
         self._inferencer = SchemaInferencer()
         self._normalizer = Normalizer()
         self._api_key = anthropic_api_key or os.environ.get("ANTHROPIC_API_KEY", "")
+        self._tokenizer = Tokenizer()
 
     # ------------------------------------------------------------------
     # Public API
@@ -107,7 +110,7 @@ class LogParserPipeline:
         parse_fn = PARSER_MAP.get(fmt)
         if parse_fn:
             try:
-                if fmt == "binary":
+                if fmt in ("binary", "parquet"):
                     parsed_records = parse_fn(
                         content if isinstance(content, bytes) else content.encode("latin-1")
                     )
@@ -117,9 +120,16 @@ class LogParserPipeline:
             except Exception as exc:
                 logger.error("Parser %s failed: %s", fmt, exc)
 
+        # 2b. Tokenize parsed records
+        try:
+            token_sequences = self._tokenizer.tokenize(parsed_records)
+        except Exception as exc:
+            logger.error("Tokenizer failed: %s", exc)
+            token_sequences = []
+
         # 3. Infer schema
         try:
-            mapping = self._inferencer.infer(parsed_records)
+            mapping = self._inferencer.infer(parsed_records, token_hints=token_sequences)
         except Exception as exc:
             logger.error("Schema inference failed: %s", exc)
             mapping = SchemaMapping({}, [], [], {})
@@ -148,12 +158,9 @@ class LogParserPipeline:
                     text, api_key=self._api_key, source_file=source
                 )
                 if llm_records:
-                    # If rule-based gave nothing, use LLM results entirely;
-                    # otherwise append LLM records for low-confidence entries
-                    if not unified:
-                        unified = llm_records
-                    else:
-                        unified.extend(llm_records)
+                    # Always replace: LLM results are better than low-confidence
+                    # or failed rule-based records.
+                    unified = llm_records
                     fmt = f"{fmt}+llm"
             except Exception as exc:
                 logger.error("LLM fallback error: %s", exc)
@@ -175,6 +182,7 @@ class LogParserPipeline:
             total_records=len(unified),
             failed_records=failed,
             avg_confidence=round(avg_conf, 3),
+            token_sequences=token_sequences,
         )
 
     def _empty_result(self, elapsed: float) -> ParseResult:
@@ -186,4 +194,5 @@ class LogParserPipeline:
             total_records=0,
             failed_records=0,
             avg_confidence=0.0,
+            token_sequences=[],
         )

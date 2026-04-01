@@ -686,7 +686,48 @@ def gen_kv_log():
 
 
 # ============================================================
-# 8. Binary Diagnostic Dump
+# 8. Vendor C - Parquet Sensor Trace (Dry Etch Tool)
+# ============================================================
+def gen_parquet():
+    try:
+        import pyarrow as pa          # type: ignore
+        import pyarrow.parquet as pq  # type: ignore
+    except ImportError:
+        print("  vendor_c_sensor_trace.parquet SKIPPED (pyarrow not installed)")
+        return
+
+    random.seed(77)
+    base_time = datetime.datetime(2025, 1, 15, 8, 0, 0)
+
+    # Vendor C uses different field names and a flat per-sample row layout
+    rows = []
+    anomaly_indices = set(random.sample(range(80), 6))
+
+    for i in range(80):
+        t = base_time + datetime.timedelta(seconds=i * 30)
+        is_anomaly = i in anomaly_indices
+
+        rows.append({
+            "Timestamp":      t.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+            "EquipmentID":    "ETCH-003",
+            "ChamberID":      random.choice(["CH-A", "CH-B"]),
+            "PressureBar":    round((0.9 if not is_anomaly else 3.2) + random.uniform(-0.05, 0.05), 4),
+            "TempCelsius":    round((85.0 if not is_anomaly else 148.0) + random.uniform(-1.5, 1.5), 2),
+            "RFPowerWatt":    round((300.0 if not is_anomaly else 510.0) + random.uniform(-5, 5), 1),
+            "GasFlowCCM":     round((50.0 if not is_anomaly else 11.0) + random.uniform(-1, 1), 2),
+            "ProcessStep":    random.randint(1, 4),
+            "AlarmCode":      random.choice(["ALM-5001", "ALM-5002", "ALM-5003", ""]) if is_anomaly else "",
+            "Severity":       random.choice(["WARNING", "CRITICAL"]) if is_anomaly else "INFO",
+        })
+
+    table = pa.Table.from_pylist(rows)
+    path = os.path.join(OUT_DIR, "vendor_c_sensor_trace.parquet")
+    pq.write_table(table, path)
+    print(f"  vendor_c_sensor_trace.parquet: {len(rows)} rows")
+
+
+# ============================================================
+# 9. Binary Diagnostic Dump
 # ============================================================
 def gen_binary():
     random.seed(88)
@@ -791,5 +832,6 @@ if __name__ == "__main__":
     gen_event_log()
     gen_syslog()
     gen_kv_log()
+    gen_parquet()
     gen_binary()
     print("Done!")

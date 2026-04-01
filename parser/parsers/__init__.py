@@ -16,6 +16,7 @@ from parser.parsers.syslog_parser import parse as syslog_parse
 from parser.parsers.kv_parser import parse as kv_parse
 from parser.parsers.text_parser import parse as text_parse
 from parser.parsers.binary_parser import parse as binary_parse
+from parser.parsers.parquet_parser import parse as parquet_parse
 
 PARSER_MAP: dict[str, Callable[..., list[dict]]] = {
     "json": json_parse,
@@ -25,6 +26,7 @@ PARSER_MAP: dict[str, Callable[..., list[dict]]] = {
     "kv": kv_parse,
     "text": text_parse,
     "binary": binary_parse,
+    "parquet": parquet_parse,
 }
 
 __all__ = [
@@ -36,4 +38,5 @@ __all__ = [
     "kv_parse",
     "text_parse",
     "binary_parse",
+    "parquet_parse",
 ]

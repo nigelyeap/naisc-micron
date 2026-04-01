@@ -75,7 +75,7 @@ export function ExplorerPage() {
           </SelectTrigger>
           <SelectContent className="bg-bg-panel border-border text-text-primary">
             <SelectItem value="all">All</SelectItem>
-            {['json','xml','csv','syslog','kv','text','binary'].map(f => (
+            {['json','xml','csv','syslog','kv','text','binary','parquet'].map(f => (
               <SelectItem key={f} value={f}>{f.toUpperCase()}</SelectItem>
             ))}
           </SelectContent>

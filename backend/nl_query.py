@@ -54,8 +54,8 @@ SQLite database with three tables:
      z_score (REAL), description (TEXT),
      detected_at (TEXT ISO-8601)
 
-Common event_type values: ALARM, WARNING, INFO, ERROR, STATUS, MAINTENANCE
-Common severity values: CRITICAL, HIGH, MEDIUM, LOW, INFO
+Common event_type values: SENSOR_READ, ALARM, EVENT, RECIPE, WAFER_OP, UNKNOWN
+Common severity values: INFO, WARNING, ERROR, CRITICAL
 """
 
 
@@ -89,7 +89,7 @@ class NLQueryEngine:
         prompt = self._build_prompt(question)
 
         response = self._client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=1024,
             messages=[{"role": "user", "content": prompt}],
         )
@@ -178,7 +178,7 @@ class NLQueryEngine:
         )
         try:
             response = self._client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-6",
                 max_tokens=256,
                 messages=[{"role": "user", "content": prompt}],
             )
@@ -199,11 +199,11 @@ class NLQueryEngine:
             explanation = "Showing the most recent alarm events."
 
         elif any(w in q for w in ("error", "errors")):
-            sql = "SELECT * FROM log_records WHERE event_type = 'ERROR' ORDER BY timestamp DESC LIMIT 50"
+            sql = "SELECT * FROM log_records WHERE severity = 'ERROR' ORDER BY timestamp DESC LIMIT 50"
             explanation = "Showing the most recent error events."
 
         elif any(w in q for w in ("warning", "warnings")):
-            sql = "SELECT * FROM log_records WHERE event_type = 'WARNING' ORDER BY timestamp DESC LIMIT 50"
+            sql = "SELECT * FROM log_records WHERE severity = 'WARNING' ORDER BY timestamp DESC LIMIT 50"
             explanation = "Showing the most recent warning events."
 
         elif "anomal" in q:
@@ -244,7 +244,8 @@ class NLQueryEngine:
 
         elif "fault" in q:
             sql = (
-                "SELECT * FROM log_records WHERE event_type IN ('ALARM','ERROR','FAULT') "
+                "SELECT * FROM log_records WHERE event_type = 'ALARM' "
+                "OR severity IN ('ERROR', 'CRITICAL') "
                 "ORDER BY timestamp DESC LIMIT 50"
             )
             explanation = "Showing recent fault-related events."

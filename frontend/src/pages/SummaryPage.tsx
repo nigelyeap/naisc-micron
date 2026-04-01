@@ -48,7 +48,7 @@ ${toolLines || '_No data_'}
 - Parsed **${s.total_records}** log records across **${s.total_files}** files
 - Detected **${s.total_anomalies}** anomalies requiring attention
 - Average parse confidence: **${formatConfidence(s.avg_confidence)}**
-- Formats supported: JSON, XML, CSV, Syslog, Key-Value, Plain Text, Binary
+- Formats supported: JSON, XML, CSV, Syslog, Key-Value, Plain Text, Binary, Parquet
 `
 }
 

@@ -3,8 +3,8 @@ const STAGES = [
     id: 'input',
     label: 'Raw Log Files',
     color: '#64748b',
-    sub: ['JSON', 'XML', 'CSV', 'Syslog', 'KV', 'Text', 'Binary'],
-    desc: 'Semiconductor equipment logs from diverse vendors in 7 formats',
+    sub: ['JSON', 'XML', 'CSV', 'Syslog', 'KV', 'Text', 'Binary', 'Parquet'],
+    desc: 'Semiconductor equipment logs from diverse vendors in 8 formats',
   },
   {
     id: 'detector',
@@ -17,7 +17,7 @@ const STAGES = [
     id: 'parser',
     label: 'Parser',
     color: '#3b82f6',
-    sub: ['JSONParser', 'XMLParser', 'CSVParser', 'SyslogParser', 'KVParser', 'TextParser', 'BinaryParser'],
+    sub: ['JSONParser', 'XMLParser', 'CSVParser', 'SyslogParser', 'KVParser', 'TextParser', 'BinaryParser', 'ParquetParser'],
     desc: 'Per-format parsers with recursive flattening and LLM fallback',
   },
   {
